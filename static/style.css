@@ -12,19 +12,20 @@ body {
 
 *,
 html {
-    --primaryGradient: linear-gradient(93.12deg, #581b98 0.52%, #9c1de7 100%);
-    --secondaryGradient: linear-gradient(268.91deg, #581b98 -2.14%, #9c1de7 99.69%);
+    --primaryGradient: linear-gradient(93.12deg, hsl(183, 74%, 43%) 0.52%, #126f7b 100%);
+    --secondaryGradient: linear-gradient(268.91deg, #216b9d -2.14%, #1db1e7 99.69%);
     --primaryBoxShadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
     --secondaryBoxShadow: 0px -10px 15px rgba(0, 0, 0, 0.1);
-    --primary: #581b98;
+    --primary: #0c7dbe;
 }
 
 /* CHATBOX
 =============== */
 .chatbox {
-    position: absolute;
+    position: fixed; /* Fixed position for better control */
     bottom: 30px;
-    right: 30px;
+    left: 50%; /* Centers the chatbox horizontally */
+    transform: translateX(-50%); /* Adjust to be perfectly centered */
 }
 
 /* CONTENT IS CLOSE */
@@ -39,7 +40,7 @@ html {
     transition: all 0.5s ease-in-out;
 }
 
-/* CONTENT ISOPEN */
+/* CONTENT IS OPEN */
 .chatbox--active {
     transform: translateY(-40px);
     z-index: 123456;

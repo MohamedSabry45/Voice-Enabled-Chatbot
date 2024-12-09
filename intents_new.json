@@ -1,0 +1,288 @@
+{
+  "intents": [
+    {
+      "tag": "greeting",
+      "patterns": [
+        "Hello",
+        "Hi",
+        "Good morning",
+        "Good afternoon",
+        "Hey",
+        "What's up",
+        "Greetings",
+        "How are you?",
+        "Hi there",
+        "Hey there"
+      ],
+      "responses": [
+        "Hello! How can I help?",
+        "Hi! How can I assist?",
+        "Good morning! How may I assist you?",
+        "Hey! What can I do for you?",
+        "Hello! How can I be of help today?"
+      ]
+    },
+    {
+      "tag": "goodbye",
+      "patterns": [
+        "Goodbye",
+        "Bye",
+        "See you later",
+        "Take care",
+        "Farewell",
+        "See you soon",
+        "Catch you later",
+        "Take it easy"
+      ],
+      "responses": [
+        "Goodbye! Take care!",
+        "See you later! Feel free to ask anytime.",
+        "Farewell! Wishing you all the best.",
+        "Take care! See you soon."
+      ]
+    },
+    {
+      "tag": "education_info",
+      "patterns": [
+        "What is El Shorouk Academy?",
+        "Tell me about El Shorouk Academy",
+        "What programs are offered at El Shorouk Academy?",
+        "Where is El Shorouk Academy located?",
+        "What is the history of El Shorouk Academy?"
+      ],
+      "responses": [
+        "El Shorouk Academy is a leading educational institution in Egypt.",
+        "El Shorouk Academy offers diverse academic programs.",
+        "El Shorouk Academy is located in Egypt, providing quality education.",
+        "The academy has a rich history of academic excellence."
+      ]
+    },
+    {
+      "tag": "computer_science",
+      "patterns": [
+        "Tell me about Computer Science",
+        "What is the Computer Science department like?",
+        "What courses are offered in Computer Science?",
+        "What can I study in Computer Science?",
+        "Why should I study Computer Science?"
+      ],
+      "responses": [
+        "Computer Science focuses on software development, AI, and data science.",
+        "We offer courses in programming, machine learning, and algorithms.",
+        "The department prepares students for careers in tech industries.",
+        "CS opens doors to high-demand careers in technology."
+      ]
+    },
+    {
+      "tag": "computer_science_courses",
+      "patterns": [
+        "What courses are available in Computer Science?",
+        "What subjects are taught in Computer Science?",
+        "Can you list the Computer Science courses?",
+        "What programming languages are taught?",
+        "What are the core subjects of CS?"
+      ],
+      "responses": [
+        "Courses include Programming, Algorithms, Databases, AI, and ML.",
+        "You’ll study Data Structures, Networks, and Software Engineering.",
+        "We offer core courses and specialized courses in AI and Data Science.",
+        "The CS program includes languages like Python, Java, and C++."
+      ]
+    },
+    {
+      "tag": "computer_science_activities",
+      "patterns": [
+        "What activities are available for Computer Science students?",
+        "Are there student clubs for Computer Science?",
+        "What extracurricular activities are offered in CS?",
+        "What competitions can Computer Science students join?"
+      ],
+      "responses": [
+        "Students participate in hackathons, coding competitions, and workshops.",
+        "Join clubs like the Robotics Club, Coding Club, and AI Club.",
+        "Students are encouraged to participate in coding competitions.",
+        "There are events like hackathons and programming challenges."
+      ]
+    },
+    {
+      "tag": "computer_science_advantages",
+      "patterns": [
+        "Why should I study Computer Science?",
+        "What are the advantages of studying Computer Science?",
+        "What are the benefits of a CS degree?",
+        "What can I do with a Computer Science degree?"
+      ],
+      "responses": [
+        "A CS degree opens doors to high-demand tech careers.",
+        "You’ll gain skills in programming, AI, and data science.",
+        "CS graduates are highly sought after in tech industries.",
+        "CS graduates can work in software development, data science, and AI."
+      ]
+    },
+    {
+      "tag": "engineering_department",
+      "patterns": [
+        "Tell me about the Engineering department",
+        "What engineering programs are offered?",
+        "What can I study in Engineering?",
+        "What is the focus of the Engineering department?"
+      ],
+      "responses": [
+        "Engineering programs include Civil, Mechanical, Electrical, and more.",
+        "We offer practical training in all major engineering fields.",
+        "The Engineering department focuses on hands-on learning and innovation.",
+        "You can study fields like Civil, Electrical, Mechanical, and Mechatronics."
+      ]
+    },
+    {
+      "tag": "media_department",
+      "patterns": [
+        "Tell me about the Media department",
+        "What programs are available in Media?",
+        "What is taught in Media studies?",
+        "What are the courses in Media?"
+      ],
+      "responses": [
+        "The Media department offers programs in Journalism, PR, and Advertising.",
+        "We focus on real-world media skills including writing, video production, and digital media.",
+        "Students gain hands-on experience in media production and communication.",
+        "Courses include Digital Media, Public Relations, and Journalism."
+      ]
+    },
+    {
+      "tag": "business_department",
+      "patterns": [
+        "Tell me about the Business department",
+        "What programs are offered in Business?",
+        "What can I study in Business?",
+        "What subjects are taught in Business?"
+      ],
+      "responses": [
+        "Business programs include Management, Marketing, Finance, and Accounting.",
+        "Business students develop leadership and management skills.",
+        "The Business department prepares students for careers in various industries.",
+        "We offer courses in Finance, Marketing, Business Law, and Management."
+      ]
+    },
+    {
+      "tag": "student_support_services",
+      "patterns": [
+        "What student services are available?",
+        "Tell me about student counseling services",
+        "Are there career services available?",
+        "Can you help with my studies?"
+      ],
+      "responses": [
+        "We offer academic advising, career counseling, and mental health support.",
+        "Our Career Center provides job placement assistance and internships.",
+        "Students receive guidance on personal development, internships, and more.",
+        "We provide tutoring services and mentoring for academic success."
+      ]
+    },
+    {
+      "tag": "campus_life",
+      "patterns": [
+        "What is campus life like at El Shorouk Academy?",
+        "What extracurricular activities can I join?",
+        "Are there entertainment options at the campus?",
+        "Tell me about the campus environment?"
+      ],
+      "responses": [
+        "Campus life is vibrant with clubs, sports, and cultural events.",
+        "Join clubs like Debate, Robotics, or Media.",
+        "There are many cultural events, sports activities, and student clubs.",
+        "The campus provides a variety of leisure and entertainment options."
+      ]
+    },
+    {
+      "tag": "student_clubs",
+      "patterns": [
+        "What student clubs are available?",
+        "Tell me about the student clubs at El Shorouk Academy",
+        "Are there any clubs for technology enthusiasts?",
+        "What are the benefits of joining student clubs?"
+      ],
+      "responses": [
+        "There are clubs for Robotics, Coding, AI, and more.",
+        "We have a variety of clubs including Media, Sports, and Debate.",
+        "Clubs offer opportunities to learn, network, and grow outside of class.",
+        "Joining a club allows students to build teamwork and leadership skills."
+      ]
+    },
+    {
+      "tag": "sports_and_recreation",
+      "patterns": [
+        "What sports are available?",
+        "Are there recreational activities on campus?",
+        "Can I play sports at El Shorouk Academy?",
+        "What are the facilities for sports?"
+      ],
+      "responses": [
+        "You can join sports like football, basketball, and volleyball.",
+        "The campus offers gyms, courts, and recreational spaces.",
+        "Students are encouraged to participate in sports events and competitions.",
+        "There are sports facilities for indoor and outdoor games."
+      ]
+    },
+    {
+      "tag": "scholarships_and_financial_aid",
+      "patterns": [
+        "Does El Shorouk Academy offer scholarships?",
+        "Tell me about scholarships at El Shorouk Academy",
+        "Are there financial aid options available?",
+        "How can I apply for a scholarship?"
+      ],
+      "responses": [
+        "Yes, scholarships are available based on merit and financial need.",
+        "We offer scholarships for academic excellence and sports achievements.",
+        "There are financial aid options for students who need assistance.",
+        "Check the academy’s website for details on scholarships and financial aid."
+      ]
+    },
+    {
+      "tag": "research_opportunities",
+      "patterns": [
+        "Are there research opportunities at El Shorouk Academy?",
+        "What research is conducted at El Shorouk Academy?",
+        "Tell me about the research centers at El Shorouk Academy",
+        "What types of research can I participate in?"
+      ],
+      "responses": [
+        "The academy has research centers in Computer Science, Engineering, and more.",
+        "Students can participate in research projects in various fields.",
+        "We collaborate with industry partners on cutting-edge research.",
+        "Research opportunities exist in AI, Data Science, Engineering, and Media."
+      ]
+    },
+    {
+      "tag": "admissions",
+      "patterns": [
+        "How can I apply to El Shorouk Academy?",
+        "What is the admission process like?",
+        "How do I get into El Shorouk Academy?",
+        "What is the application deadline?"
+      ],
+      "responses": [
+        "To apply, fill out the online application form and submit your documents.",
+        "The admission process includes an application, an interview, and tests.",
+        "Check our website for detailed information on the application process.",
+        "The deadline for applications is listed on our website."
+      ]
+    },
+    {
+      "tag": "international_students",
+      "patterns": [
+        "Are there programs for international students?",
+        "Can international students apply to El Shorouk Academy?",
+        "What support is available for international students?",
+        "How can I apply as an international student?"
+      ],
+      "responses": [
+        "Yes, international students are welcome to apply.",
+        "We offer support with visas, accommodation, and language assistance.",
+        "International students can join all academic programs and clubs.",
+        "Our team helps international students settle in Egypt."
+      ]
+    }
+  ]
+}

@@ -1,10 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-
     <head>
         <meta charset="UTF-8">
         <title>Chatbot</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- إضافة Font Awesome -->
+        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+        <style>
+            .send__button i {
+                margin-right: 10px; /* مسافة بين الأيقونتين */
+            }
+        </style>
     </head>
 
     <body>
@@ -17,8 +22,7 @@
                                 alt="image">
                         </div>
                         <div class="chatbox__content--header">
-                            <h4 class="chatbox__heading--header">Chat support</h4>
-                            <p class="chatbox__description--header">Hi. My name is Sam. How can I help you?</p>
+                            <h4 class="chatbox__heading--header">Voice-Enabled Chatbot</h4> <!-- تغيير النص هنا -->
                         </div>
                     </div>
                     <div class="chatbox__messages">
@@ -26,7 +30,10 @@
                     </div>
                     <div class="chatbox__footer">
                         <input type="text" placeholder="Write a message...">
-                        <button class="chatbox__send--footer send__button">Send</button>
+                        <button class="chatbox__send--footer send__button">
+                            <i class="fas fa-microphone"></i> <!-- أيقونة الميكروفون -->
+                            <i class="fas fa-paper-plane"></i> <!-- أيقونة الطائرة الورقية -->
+                        </button>
                     </div>
                 </div>
                 <div class="chatbox__button">
@@ -39,7 +46,6 @@
             $SCRIPT_ROOT = {{ request.script_root | tojson }};
         </script>
         <script type="text/javascript" src="{{ url_for('static', filename='app.js') }}"></script>
-
     </body>
-
 </html>
+

@@ -7,12 +7,17 @@
                 "hey",
                 "hi",
                 "good day",
+                "Good morning",
+                "Good afternoon",
+                "Good evening",
+                "What's up?",
+                "How's it going?",  
                 "greetings",
                 "what's up?",
                 "how is it going",
                 "welcome to Al Shorouk Academy"
             ],
-            "responses": ["hello", "hey!", "what can I do for you?", "nice to have you here at Al Shorouk Academy"]
+            "responses": ["hello", "hey!", "what can I do for you?", "nice to have you here at Al Shorouk Academy", "Hello! How can I help you today?"]
         },
 
         {
@@ -42,6 +47,850 @@
             "responses": [
                 "You can apply to Al Shorouk Academy through our website or by visiting our admissions office. The admission requirements are listed on our website. The application deadline is [insert date here]. You can schedule a tour by contacting our admissions office."
             ]
+        },
+
+        {
+            "tag": "programs",
+            "patterns": [
+                "what programs does Al Shorouk Academy offer?",
+                "can you tell me more about Al Shorouk Academy's programs?",
+                "what are the program requirements?",
+                "programs"
+            ],
+            "responses": [
+                "Al Shorouk Academy offers a variety of programs in [insert fields here]. You can find more information about our programs on our website. The program requirements are also listed on our website."
+            ]
+        },
+
+        {
+            "tag": "scholarships",
+            "patterns": [
+                "does Al Shorouk Academy offer scholarships?",
+                "what are the scholarship options at Al Shorouk Academy?",
+                "how can I apply for a scholarship at Al Shorouk Academy?",
+                "scholarships"
+            ],
+            "responses": [
+                "Yes, Al Shorouk Academy offers scholarships to eligible students. You can find more information about our scholarship options on our website. The application process for scholarships is also listed on our website."
+            ]
+        },
+
+        {
+            "tag": "student life",
+            "patterns": [
+                "what is student life like at Al Shorouk Academy?",
+                "are there any student clubs or organizations at Al Shorouk Academy?",
+                "what extracurricular activities are available at Al Shorouk Academy?",
+                "student life"
+            ],
+            "responses": [
+                "Student life at Al Shorouk Academy is vibrant and diverse. We have a variety of student clubs and organizations that you can join, and there are many extracurricular activities available, such as [insert activities here]. You can find more information about student life on our website."
+            ]
+        },
+
+        {
+            "tag": "faculty",
+            "patterns": [
+                "who are the faculty members at Al Shorouk Academy?",
+                "can you tell me more about Al Shorouk Academy's faculty?",
+                "what are the research interests of the faculty at Al Shorouk Academy?",
+                "faculty",
+                "university"
+            ],
+            "responses": [
+                "The faculty members at Al Shorouk Academy are highly qualified and experienced in their fields. You can find more information about our faculty on our website. The research interests of our faculty are also listed on our website."
+            ]
+        },
+
+        {
+            "tag": "courses",
+            "patterns": [
+                "What courses does Al Shorouk Academy offer?",
+                "Can you give me an overview of the courses offered at Al Shorouk Academy?",
+                "What are the popular courses at Al Shorouk Academy?",
+                "courses"
+            ],
+            "responses": [
+                "Al Shorouk Academy offers a wide range of courses across various disciplines such as business, engineering, computer science, and more. Our courses are designed to provide students with practical skills and knowledge that can be applied in the real world. You can find more details on our website or contact our admissions team."
+            ]
+        },
+        {
+            "tag": "campus",
+            "patterns": [
+                "What is the campus like at Al Shorouk Academy?",
+                "Can you describe the facilities and amenities available on the Al Shorouk Academy campus?",
+                "What are the campus life and student activities like at Al Shorouk Academy?",
+                "campus"
+            ],
+            "responses": [
+                "Al Shorouk Academy has a modern and well-equipped campus with state-of-the-art facilities and amenities. We have spacious classrooms, laboratories, libraries, sports facilities, and more. We also have a vibrant student community with various clubs and activities that provide opportunities for personal and professional growth. You can find more details on our website or contact our admissions team."
+            ]
+        },
+
+        {
+            "tag": "online learning",
+            "patterns": [
+                "Does Al Shorouk Academy offer online learning programs?",
+                "Can you tell me more about the online courses offered at Al Shorouk Academy?",
+                "What are the benefits of online learning at Al Shorouk Academy?",
+                "online learning"
+            ],
+            "responses": [
+                "Yes, Al Shorouk Academy offers online learning programs that provide students with the flexibility to study from anywhere and at any time. Our online courses are designed to deliver high-quality education through engaging and interactive content."
+            ]
+        },
+
+        {
+            "tag": "STEM Education",
+            "patterns": ["What is STEM education?", "Does Al Shorouk Academy offer STEM programs?", "STEM Education"],
+            "responses": [
+                "STEM education focuses on science, technology, engineering, and mathematics. Yes, Al Shorouk Academy offers a range of STEM programs that prepare students for careers in these fields."
+            ]
+        },
+
+        {
+            "tag": "Language Programs",
+            "patterns": [
+                "Does Al Shorouk Academy offer language programs?",
+                "What languages can I learn at Al Shorouk Academy?",
+                "Language Programs"
+            ],
+            "responses": [
+                "Yes, Al Shorouk Academy offers a variety of language programs, including Arabic, English, French, and Spanish."
+            ]
+        },
+
+        {
+            "tag": "tuition",
+            "patterns": [
+                "How much does it cost to attend Al Shorouk Academy?",
+                "What is the tuition fee at Al Shorouk Academy?",
+                "Can you tell me about the financial aid options at Al Shorouk Academy?",
+                "tuition"
+            ],
+            "responses": [
+                "The tuition fee at Al Shorouk Academy varies depending on the grade level and program of study. We offer a range of financial aid options, including scholarships and discounts for siblings and early enrollment. For more information about the tuition fees and financial aid options, please visit our website or contact our admissions office."
+            ]
+        },
+
+        {
+            "tag": "extracurricular activities",
+            "patterns": [
+                "What extracurricular activities does Al Shorouk Academy offer?",
+                "Can you tell me about the sports programs at Al Shorouk Academy?",
+                "Are there any music or art classes at Al Shorouk Academy?",
+                "extracurricular activities"
+            ],
+            "responses": [
+                "At Al Shorouk Academy, we offer a wide range of extracurricular activities, including sports teams, music and art classes, robotics and coding clubs, and community service opportunities. We believe that extracurricular activities are an important part of the overall educational experience, and encourage our students to get involved in a variety of activities outside of the classroom."
+            ]
+        },  
+        {
+            "tag": "facilities",
+            "patterns": [
+                "What kind of facilities does Al Shorouk Academy have for students?",
+                "Can you tell me about the library at Al Shorouk Academy?",
+                "What sports facilities are available to students at Al Shorouk Academy?",
+                "facilities"
+            ],
+            "responses": [
+                "Al Shorouk Academy has a variety of facilities available to students, including a library, sports facilities, and student lounges. You can find more information on our website or contact our admissions office for specific details."
+            ]
+        },
+        {
+            "tag": "career prospects",
+            "patterns": [
+                "What are the career prospects for graduates of Al Shorouk Academy?",
+                "Can you tell me about the job placement rate?",
+                "What industries do graduates typically work in?",
+                "What kind of jobs do graduates get?",
+                "How does Al Shorouk Academy prepare students for their careers?",
+                "career prospects"
+            ],
+            "responses": [
+                "Al Shorouk Academy has a strong track record of producing successful graduates who are well-prepared for their careers. Our graduates have gone on to work in a wide range of industries, including healthcare, technology, education, and more. We offer career services and internships to help students gain practical experience and make connections in their field."
+            ]
+        },
+        {
+            "tag": "study tips",
+            "patterns": [
+                "What are some effective study tips?",
+                "How can I improve my study habits?",
+                "Do you have any advice for studying better?",
+                "What are some study techniques that work?",
+                "How can I stay focused while studying?",
+                "study tips"
+            ],
+            "responses": [
+                "Sure, here are some study tips: make a schedule, create a study environment, take breaks, use active learning techniques, and test yourself regularly."
+            ]
+        },
+        {
+            "tag": "students material",
+            "patterns": [
+                "The teacher should have uploaded materials in the class I am taking, but I cannot find any materials on the course.",
+                "I cannot find the uploaded material.",
+                "I cannot see the teacher's materials.",
+                "students material"
+            ],
+            "responses": [
+                "If you cannot find the documents, please check the following points. <br> <br>  <br> 1. Make sure that you are enrolled in the course corresponding to the subject. Usually, you are registered for the course once you applied for the registration. You cannot use the documents before the registration. <br> 2. Ask the teacher in charge of the class to confirm that the availability period of the data is set correctly."
+            ]
+        },
+        {
+            "tag": "teachers material",
+            "patterns": [
+                "I put the material on my page but students cannot see it.",
+                "How can I prevent the students from seeing any materials on documents stored for the subjects of the previous semester?",
+                "teachers material"
+            ],
+            "responses": [
+                " 1. Please make sure that the documents have been posted to the courses for this fiscal year that correspond to the subjects, not my page. Documents posted on My Page cannot be used except for yourself. <br> 2. Make sure that there are no other courses offered on the same day of the week, time, or class. If you do not consolidate subjects, students may have registered for another subject. <br> 3. Make sure that folders and files are not hidden. If it is hidden, students cannot use it. <br> 4. By setting the availability period of folders and files, you can set the use restriction to students. Make sure that this availability period is set correctly. Students cannot use documents that are out of period."
+            ]
+        },
+        {
+            "tag": "Notification settings",
+            "patterns": [
+                "I want to notify students when I upload the document file.",
+                "What is the function of notifying students about file uploads?",
+                "Can the teacher set the notification function?",
+                "Can only some students be notified about uploaded materials?",
+                "Can only the specified student group be informed of the publication of materials?"
+            ],
+            "responses": [
+                "The instructor in charge of each class can set whether or not to notify by e-mail when creating or uploading documents. Even if the student wants to be notified, the notification will not be received unless the teacher in charge of the class sets it. In addition, by using the group function, it is possible to disclose and notify documents and notices to only some students. In addition, even if it is the document uploaded to the folder set to hide, if you set it to (notify), an email will be sent to the students stating that (folders and files have been prepared)."
+            ]
+        },
+        {
+            "tag": "Encryption",
+            "patterns": [
+                "Can I set a password for documents?",
+                "I want to set the file to open with password authentication.",
+                "Can I upload encrypted files?",
+                "Can I upload files with password settings?"
+            ],
+            "responses": [
+                "The system does not have a function to set a password for a file. The files will be disclosed to all students, but if you want to make them available only to some students, you can use the group settings to make them available only to specific students. Another option is to upload an encrypted file, and only let some students know their password."
+            ]
+        },
+        {
+            "tag": "Distribution method",
+            "patterns": [
+                "I want to share the material with all students .",
+                "I want to distribute class materials",
+                "I want to pass files to students",
+                "I would like to disclose class slides to students .",
+                "Can we disclose lesson materials to students?"
+            ],
+            "responses": ["It is possible by using (document) function."]
+        },
+        {
+            "tag": "Resubmission after deadline",
+            "patterns": [
+                "Can some students set resubmission settings?",
+                "I would like to resubmit only the student who submitted the poor task.",
+                "I would like to have students who submit incomplete assignments resubmit.",
+                "Can I resubmit the assignment after the final acceptance date?",
+                "I have set the resubmission settings for specific students, but they will not be reflected in the overall final acceptance date. Can students resubmit in this state?",
+                "After the deadline, it seems that the resubmission is not possible, but can I do it?"
+            ],
+            "responses": [
+                "Even after the deadline, it is possible for the teacher to request specific students to resubmit. The final acceptance date and time set in the resubmission setting will be reflected only for the student, and will not be reflected in the overall final acceptance date."
+            ]
+        },
+        {
+            "tag": "Change of deadline after deadline",
+            "patterns": [
+                "Can I modify the submission deadline after the final acceptance date?",
+                "I want to be able to submit again the assignments that have been published in the past.",
+                "Can I edit the submission deadline and reset it for submission?",
+                "I would like to change the deadline so that students can submit the task once again",
+                "Can I change the deadline after the deadline?"
+            ],
+            "responses": ["It is possible by changing the deadline "]
+        },
+        {
+            "tag": "File submission",
+            "patterns": [
+                "Files submitted in the past will be updated.",
+                "When a student resubmits an assignment, is it overwritten if the file name is the same?",
+                "I want to keep the previously submitted file.",
+                "Can I save a file with the same name without overwriting it?",
+                "Can I save the submitted file as an alias?"
+            ],
+            "responses": [
+                "If the file name is the same, an overwrite confirmation message will be displayed, and the file will be overwritten if submitted as it is. If you want to submit as a separate file, please change the file name beforehand and submit. "
+            ]
+        },
+        {
+            "tag": "Notification",
+            "patterns": [
+                "No notification about the assignment has arrived.",
+                "I would like to send a notification email to myself (teacher)",
+                "Can I notify that I changed the content of the assignment?",
+                "I would like to inform students the change in assignment",
+                "I want to be notified of the addition of an assignment"
+            ],
+            "responses": [
+                "The teachers in each class can set whether to be notified by e-mail when the addition or modification of the assignment is posted or the notification is posted. Even if the student wants to be notified, the notification will not be received unless the teacher in charge of the class sets it. In addition, since the assignment submission authority is granted to teachers as a standard, notification emails will also be sent to teachers if notifications such as adding tasks are set. "
+            ]
+        },
+        {
+            "tag": "Submit replacement",
+            "patterns": [
+                "I cannot submit an assignment even after the assignment deadline has been adjusted.",
+                "The deadline for the assignment is not working",
+                "The submission was completed even after the date and time of the assignment.",
+                "Can't submit assignment",
+                "Can I submit delayed submissions more than once?"
+            ],
+            "responses": [
+                "Assignments can be submitted repeatedly until the final acceptance date. In addition, even if the deadline has been extended, if it has already been evaluated, it cannot be submitted for replacement. "
+            ]
+        },
+        {
+            "tag": "Achievements",
+            "patterns": [
+                "Please let me know how to get the grade list of the assignment.",
+                "Evaluated grades for the task are not reflected in the gradebook.",
+                "I want to know the submission status of the assignment.",
+                "I want to reflect my  grades",
+                "When will the grade results be reflected in the gradebook?"
+            ],
+            "responses": [
+                "In order to reflect the scoring results for the assignment in the gradebook, it is first necessary to select 'Add an assignment to gradebook' when creating the assignment. Next, scoring results will be reflected in the gradebook by scoring the submitted assignments and returning them to the students. In addition, you can use the 'Submission Status List' to know the submission status of assignments and the scoring results in a list. The submission status list can also be downloaded as an Excel file. "
+            ]
+        },
+        {
+            "tag": "Confirmation of result",
+            "patterns": [
+                "I cannot see the assignments submitted by the students.",
+                "Can't you score the question before the deadline?",
+                "Can student's submissions to assignments not be batch downloaded until the deadline date?",
+                "I created an assignment that imposed text description and file attachment, but I cannot confirm the text content written by the student.",
+                "I cannot grade the assignment."
+            ],
+            "responses": [
+                "Students may replace their submissions until the deadline, so it is not possible to review or score submissions of assignments prior to the deadline ,  You can change the deadline settings , or use a 'Test/Questionnaire' substitute that can be checked before the deadline."
+            ]
+        },
+        {
+            "tag": "Student registration method",
+            "patterns": [
+                "The registered student has been tentatively registered, is there any difference from this registration?",
+                "A research student has not been registered for the course.",
+                "Several students are not connected to class.",
+                "Do graduate students need to apply for additional rights ?",
+                "I would like to add students to the class .",
+                "A user whose user information has not been set is registered.",
+                "Materials are not uploaded because TA is not registered for the course."
+            ],
+            "responses": [
+                "For students who have applied for the course, the course status of the 'Class Information' function will be displayed as 'Full Registration'. On the other hand, if the teacher manually registers the student or if the student is registered for the course by self-registration, 'provisional registration' is displayed. You can use the kibaco course even for provisionally registration, but you cannot earn credits if you do not apply separately. <br> In the following cases, students will remain tentatively registered. <br> 1. Non-regular students such as course students and research students. If it is necessary to change the display to this registration, from the teacher in charge of office work or classes such as the education affairs division or the international affairs division system management room 2 (replace with an at-mark of e-learning-ml ml.tmu.tc.jp). <br> 2. If you create a course on kibaco that is not registered in the clerical information system. <br> <br> When registering a student as a 'TA/Tutor', give 'TA/Tutor' authority when registering a student in 'Register Students or TA' of 'Class Information' function."
+            ]
+        },
+        {
+            "tag": "student unregistration",
+            "patterns": [
+                "Are students who have been provisionally enrolled in the  course will not be erased as provisionally registered even after the course application period is over?",
+                "I cannot cancel classes I do not register .",
+                "Can the teacher delete a student who has been temporarily registered?",
+                "I am tentatively registered student but I want to withdraw.",
+                "I would like to cancel the course without registering it"
+            ],
+            "responses": [
+                "If a provisionally registered student applies for a course, it will be changed to full registration the next day. If a provisionally registered student does not apply for the course, it will remain provisionally registered even after the course application period. Class teachers can unregister students from the course for provisionally registration. However, in the following cases, students are still provisionally registered even if they have applied for the course. <br> 1. Non-regular students such as course students and research students. If it is necessary to change the display to this registration, the teacher in charge of the class or office workers of the education affairs division or the international affairs division contacts system management room 2 (replace with an at-mark of e-learning-ml ml.tmu.ac.jp). <br> 2. If you create a course on kibaco that is not registered in the clerical information system. <br> Students who are officially registered will be canceled from the course only if the students withdraw from the course application."
+            ]
+        },
+        {
+            "tag": "Self-registration",
+            "patterns": [
+                "The student tried to self-register for the subject but could not self-register for some subjects.",
+                "Can't find course from self-registration screen",
+                "I cannot register myself",
+                "A research student cannot self-register in a subject.",
+                "I want students to have access to kibaco subjects before completing the course registration."
+            ],
+            "responses": [
+                "By enrolling students in courses that correspond to the subjects, students can gain access to the courses even before applying for courses. One of the registration methods is to allow students to self-registration and make them do it for the course. The teacher in charge of each class can set whether or not to self-register for the course. Even if the student wants to self-register, he/she cannot do self-registration unless the teacher in charge of the class sets it. In addition, first-year undergraduate students cannot use kibaco until they take an information ethics class in the first class of the Information Literacy Practice I/IA."
+            ]
+        },
+        {
+            "tag": "Self-registration cancellation",
+            "patterns": [
+                "I would like to cancel the registration from the subject I self-registered.",
+                "Students who were allowed to self-register but who did not register for the course are still provisionally registered. Are there any problems with deleting students?",
+                "I would like to cancel my registration, so I want to cancel my registration.",
+                "I would like to know how to cancel the registration of secondary courses"
+            ],
+            "responses": [
+                "If you apply for a course that you have self-registered, withdrawal from the course application will cancel your registration from the course. In addition, if you do not apply for courses you have registered for self-registration, you can cancel your self-registration by yourself. However, if the teacher in charge of the class consolidates the courses and the self-registered course is a secondary course, the course application will not be canceled even if the course application is withdrawn."
+            ]
+        },
+        {
+            "tag": "Setting of subject consolidation",
+            "patterns": [
+                "Are there any ways for teachers in charge of course consolidation?",
+                "Please tell me how to apply for intensive subjects",
+                "I would like to put together classes at the same time with kibaco (I want to consolidate the subjects)",
+                "After subject consolidation, will the test created in the main subject be copied to the secondary subject?",
+                "I want to combine multiple tabs into one."
+            ],
+            "responses": [
+                " a course (class tab) is created for each class number. Even if the courses are offered on the same day of the week, time limit, or classroom, the course is divided into multiple courses in the case that different course numbers are assigned depending on the year of entry or affiliation (undergraduate or graduate school). If you are teaching a course that is divided into multiple courses as essentially the same course, you can organize those courses by applying. This process of summarizing is called subject concentration. By consolidating the courses, you will be able to manage lesson materials, manage student scoring results, etc. with one designated main course. The processing applied to the main subject course is not reflected in the secondary subject course."
+            ]
+        },
+        {
+            "tag": "Release of intensive subjects",
+            "patterns": [
+                "I would like to cancel the consolidation of subjects.",
+                "Please restore aggregated lessons",
+                "Please remove private classes",
+                "Please cancel the subject consolidation",
+                "Please cancel intensive courses"
+            ],
+            "responses": ["If you consolidate the subjects, you cannot cancel them."]
+        },
+        {
+            "tag": "Displaying multiple classes",
+            "patterns": [
+                "If I look at the schedule, there are two classes on the same day and time",
+                "The same course is displayed twice in the kibaco timetable.",
+                "When I registered as a teacher for a class course, there were two classes on the same day and the same time period.",
+                "Multiple classes are displayed on the exact same date and time.",
+                "There are multiple classes displayed on the same day of the week, what should I do?"
+            ],
+            "responses": [
+                " A course will be created for each class number. Even if the courses are offered on the same day of the week, time limit, or class, the course is divided into multiple courses in the case that different class numbers are assigned depending on the year of admission or affiliation (undergraduate or graduate school). It is possible to combine the subjects into one."
+            ]
+        },
+        {
+            "tag": "Contact Data",
+            "patterns": [
+                " What is the contact phone number.",
+                " Talking phone number.",
+                "mobile number.",
+                "contact info",
+                "Contact Data"
+            ],
+            "responses": [
+                "If you need to speak to one of the administration or affairs staff, please call the following numbers   Phone number(1)          0226300032,  Phone number(2)          0226300033,    Phone number (3)         0226300034 ,   Phone number(4)          0226300035",
+                "."
+            ]
+        },
+        {
+            "tag": "piece of work",
+            "patterns": ["how can you help me, what are the things you can do.", "responses"],
+            "responses": [
+                "I can answer to low-intermediate questions regarding college",
+                "You can ask me questions regarding college, and I will try to answer them"
+            ]
+        },
+        {
+            "tag": "How to study",
+            "patterns": ["What skills can be gained from the field of computer science"],
+            "responses": [
+                "Basic Computer Skills Emailing Processing Software Navigating Search Engines Organizing Database Applications"
+            ]
+        },
+
+        {
+            "tag": "vacation time",
+            "patterns": [
+                "holidays",
+                "when will the semester starts",
+                " when will the semester end",
+                "when are the holidays",
+                "list of holidays",
+                "about vacations",
+                "about holidays",
+                "When is a vacation",
+                "When are holidays",
+                "how long will the vacation"
+            ],
+            "responses": ["Please refer academic calendar on our website "]
+        },
+
+        {
+            "tag": "Location",
+            "patterns": [
+                "where is the college located",
+                "college is located at",
+                "where is college",
+                "where is college located",
+                "address of college",
+                "how to reach college",
+                "college location",
+                "college address",
+                "where the college",
+                "how can I reach college",
+                "what is the college address",
+                "what is the address of the college",
+                "address",
+                "location"
+            ],
+            "responses": ["Dahyet Al-Nakhil - Al-Shorouk City - Suez Road - Cairo"]
+        },
+        {
+            "tag": "infrastructure",
+            "patterns": ["how is college infrastructure", "infrastructure", "college infrastructure"],
+            "responses": [
+                "Shorouk Academy has Excellent Infrastructure. The campus is clean. Good IT Labs With Good Speed of Internet connection"
+            ]
+        },
+        {
+            "tag": "Submit replacement",
+            "patterns": [
+                "I cannot submit an assignment even after the assignment deadline has been adjusted.",
+                "The deadline for the assignment is not working",
+                "The submission was completed even after the date and time of the assignment.",
+                "Can't submit assignment",
+                "Can I submit delayed submissions more than once?"
+            ],
+            "responses": [
+                "Assignments can be submitted repeatedly until the final acceptance date. In addition, even if the deadline has been extended, if it has already been evaluated, it cannot be submitted for replacement. "
+            ]
+        },
+        {
+            "tag": "Release of intensive subjects",
+            "patterns": [
+                "I would like to cancel the consolidation of subjects.",
+                "Please restore aggregated lessons",
+                "Please remove private classes",
+                "Please cancel the subject consolidation",
+                "Please cancel intensive courses"
+            ],
+            "responses": ["If you consolidate the subjects, you cannot cancel them."]
+        },
+        {
+            "tag": "Confirmation of result",
+            "patterns": [
+                "I cannot see the assignments submitted by the students.",
+                "Can't you score the question before the deadline?",
+                "Can student's submissions to assignments not be batch downloaded until the deadline date?",
+                "I created an assignment that imposed text description and file attachment, but I cannot confirm the text content written by the student.",
+                "I cannot grade the assignment."
+            ],
+            "responses": [
+                "Students may replace their submissions until the deadline, so it is not possible to review or score submissions of assignments prior to the deadline ,  You can change the deadline settings , or use a 'Test/Questionnaire' substitute that can be checked before the deadline."
+            ]
+        },
+        {
+            "tag": "exams",
+            "patterns": [
+                "exam dates",
+                "exam schedule",
+                "When is the semester exam",
+                "Semester exam timetable",
+                "sem",
+                "semester",
+                "exam",
+                "when is the exam",
+                "exam timetable",
+                " exam dates",
+                "when is semester"
+            ],
+            "responses": ["look  the academic calendar on our website,"]
+        },
+        {
+            "tag": "document",
+            "patterns": [
+                "document to bring",
+                " documents needed for admission",
+                "documents needed at the time of admission",
+                " documents needed during admission",
+                " documents required for admission",
+                " documents required at the time of admission",
+                " documents required during admission",
+                "What document are required for admission",
+                " Which document to bring for admission",
+                "documents",
+                " what documents do I need",
+                "what documents do I need for admission",
+                "documents needed"
+            ],
+            "responses": ["To know more about the document required visit our website"]
+        },
+        {
+            "tag": "hours",
+            "patterns": [
+                "timing of college",
+                "What is college timing",
+                "working days",
+                "When are you guys open",
+                "what are your hours",
+                "hours of operation",
+                "When is the college open",
+                "college timing",
+                "what about college timing",
+                "is college open on Saturday",
+                "tell something about college timing",
+                "What is the college  hours",
+                "when should I come to college",
+                "When should I attend college",
+                "What is my college time",
+                "college timing",
+                "timing college"
+            ],
+            "responses": ["College is open 9 am-4 pm Sunday-Thursday!"]
+        },
+        {
+            "tag": "number",
+            "patterns": [
+                "more info",
+                "contact info",
+                "how to contact college",
+                "college telephone number",
+                "college number",
+                "What is your contact no",
+                "Contact number?",
+                "how to call you",
+                "College phone no?",
+                "how can I contact you",
+                "Can I get your phone number",
+                "how can I call you",
+                "phone number",
+                "phone no",
+                "call"
+            ],
+            "responses": ["You can contact at 0226300032"]
+        },
+
+        {
+            "tag": "fees",
+            "patterns": [
+                "information about fee",
+                "information on fee",
+                "tell me the fee",
+                "college fee",
+                " fee per semester",
+                "what is the fee of each semester",
+                "what is the fees of each year",
+                "what is a fee",
+                "what are the fees",
+                "how much are the fees",
+                "fees for first year",
+                "fees",
+                "about the fees",
+                "tell me something about the fees"
+            ],
+            "responses": [
+                "For Fee detail,  You can find more information on our website https://portal.sha.edu.eg/User/Students/SearchExpenses"
+            ]
+        },
+
+        {
+            "tag": "library",
+            "patterns": [
+                "is there any library",
+                "library facility",
+                "library facilities",
+                "do you have a library",
+                "does the college have a library facility",
+                "college library",
+                "where can I get books",
+                "book facility",
+                "Where is library",
+                "Library",
+                "Tell me about library",
+                "how many libraries"
+            ],
+            "responses": [
+                "There is a library there. The scientific library at the institute aims to provide various library services that facilitate the students’ benefit from its holdings and to provide facilities for research"
+            ]
+        },
+        {
+            "tag": "uniform",
+            "patterns": [
+                "college dress code",
+                "college dress code",
+                "what is the uniform",
+                "can we wear casuals",
+                "Does the college have a uniform",
+                "Is there any uniform",
+                "uniform",
+                "what about uniform",
+                "do we have to wear the uniform"
+            ],
+            "responses": ["SHA does not have a uniform "]
+        },
+        {
+            "tag": "salutation",
+            "patterns": [
+                "ok",
+                "Okie",
+                "nice work",
+                "well done",
+                "good job",
+                "thanks for the help",
+                "Thank You",
+                "it's ok",
+                "Thanks",
+                "k",
+                "ok",
+                "okay"
+            ],
+            "responses": ["I am glad I helped you", "welcome, anything else I can assist you with?"]
+        },
+        {
+            "tag": "task",
+            "patterns": [
+                "what can you do",
+                "what are the things you can do",
+                "things you can do",
+                "what can u do for me",
+                "how u can help me",
+                "why I should use you"
+            ],
+            "responses": [
+                "I can answer to low-intermediate questions regarding college",
+                "You can ask me questions regarding college, and I will try to answer them"
+            ]
+        },
+
+        {
+            "tag": "Institutes",
+            "patterns": [
+                "What are the institutes at Al-Shorouk Academy?",
+                "Institutes at Al-Shorouk Academy",
+                "Which institutes at Al-Shorouk Academy?",
+                "Institutes"
+            ],
+            "responses": [
+                "Al-Shorouk Academy divide into three institutes:\n1) Higher Institute of Engineering\n2) Higher Institute of Higher Institute of Computers and Information Technology\n3) Higher Institute of Higher Institute of Mass Communication",
+                " 1) Higher Institute of Engineering\n2) Higher Institute of Higher Institute of Computers and Information Technology\n3) Higher Institute of Higher Institute of Mass Communication"
+            ]
+        },
+
+        {
+            "tag": "Departments of Higher Institute of Engineering",
+            "patterns": [
+                "What are the departments of Higher Institute of Engineering?",
+                "How many departments in Higher Institute of Engineering?",
+                "Departments in Higher Institute of Engineering."
+            ],
+            "responses": [
+                "Higher Institute of Engineering divide into 6 Department:\n1) Civil Engineering\n2) Power & Electrical Machines Engineering\n3) Chemical Engineering\n4) Biomedical Engineering\n5) Communication & Computer Engineering\n6) Mathematics and Engineering Physics\n7) Architectural Engineering",
+                "1) Civil Engineering\n2) Power & Electrical Machines Engineering\n3) Chemical Engineering\n4) Biomedical Engineering\n5) Communication & Computer Engineering\n6) Mathematics and Engineering Physics\n7) Architectural Engineering"
+            ]
+        },
+
+        {
+            "tag": "expenses for Civil Engineering ",
+            "patterns": [
+                "What are the civil engineering fees?",
+                "How much are civil engineering fees?",
+                "civil engineering fees"
+            ],
+            "responses": ["Civil Engineering fees are 21300 L.E", "21300  L.E", "Fees are 21300  L.E"]
+        },
+        {
+            "tag": "expenses for Power & Electrical Machines Engineering ",
+            "patterns": [
+                "What are the Power & Electrical Machines Engineering fees?",
+                "How much are Power & Electrical Machines Engineering fees?",
+                "Power & Electrical Machines Engineering fees"
+            ],
+            "responses": ["Civil Engineering fees are 25000 L.E", "25000 L.E", "Fees are 25000 L.E"]
+        },
+        {
+            "tag": "expenses for Chemical Engineering ",
+            "patterns": [
+                "What are the Chemical Engineering fees?",
+                "How much are Chemical Engineering fees?",
+                "Chemical Engineering fees"
+            ],
+            "responses": ["Civil Engineering fees are 22860 L.E", "22860 L.E", "Fees are 22860 L.E"]
+        },
+        {
+            "tag": "expenses for Biomedical Engineering ",
+            "patterns": [
+                "What are the Biomedical Engineering fees?",
+                "How much are Biomedical Engineering fees?",
+                "Biomedical Engineering fees"
+            ],
+            "responses": ["Civil Engineering fees are 23000 L.E", "23000 L.E", "Fees are 23000 L.E"]
+        },
+        {
+            "tag": "expenses for Communication & Computer Engineering ",
+            "patterns": [
+                "What are the Communication & Computer Engineering fees?",
+                "How much are Communication & Computer Engineering fees?",
+                "Communication & Computer Engineering fees"
+            ],
+            "responses": ["Civil Engineering fees are 25500 L.E", "25500 L.E", "Fees are 25500 L.E"]
+        },
+        {
+            "tag": "expenses for Mathematics and Engineering Physics ",
+            "patterns": [
+                "What are the Mathematics and Engineering Physics fees?",
+                "How much are Mathematics and Engineering Physics fees?",
+                "Mathematics and Engineering Physics fees"
+            ],
+            "responses": ["Civil Engineering fees are 20000 L.E", "20000 L.E", "Fees are 20000 L.E"]
+        },
+        {
+            "tag": "expenses for Architectural Engineering ",
+            "patterns": [
+                "What are the Architectural Engineering fees?",
+                "How much are Architectural Engineering fees?",
+                "Architectural Engineering fees"
+            ],
+            "responses": ["Civil Engineering fees are 24050 L.E", "24050 L.E", "Fees are 24050 L.E"]
+        },
+
+        {
+            "tag": "expenses for Computer Science",
+            "patterns": [
+                "What are the Computer Science fees?",
+                "How much are Computer Science fees?",
+                "Computer Science fees"
+            ],
+            "responses": ["Computer Science fees are 26000 L.E", "26000 L.E", "Fees are 26000 L.E"]
+        },
+
+        {
+            "tag": "expenses for Management Information Systems",
+            "patterns": [
+                "What are the Management Information Systems fees?",
+                "How much are Management Information Systems fees?",
+                "Management Information Systems fees"
+            ],
+            "responses": ["Management Information Systems fees are 11350 L.E", "11350 L.E", "Fees are 11350 L.E"]
+        },
+
+        {
+            "tag": "expenses for Business Administration & Accounting",
+            "patterns": [
+                "What are the Business Administration & Accounting fees?",
+                "How much are Business Administration & Accounting fees?",
+                "Business Administration & Accounting fees"
+            ],
+            "responses": ["Business Administration & Accounting fees are 9720 L.E", "9720 L.E", "Fees are 9720 L.E"]
+        },
+
+        {
+            "tag": "Departments of Higher Institute of Mass Communication",
+            "patterns": [
+                "What are the departments of Higher Institute of Mass Communication?",
+                "How many departments in Higher Institute of Mass Communication?",
+                "Departments in Higher Institute of Mass Communication."
+            ],
+            "responses": [
+                "Higher Institute of Computers and Information Technology divide into 3 Department:\n1) Journalism\n2) Radio and television\n3) Public relations and media"
+            ]
+        },
+
+        {
+            "tag": "expenses for Mass Communication",
+            "patterns": [
+                "What are the Mass Communication fees?",
+                "How much are Mass Communication fees?",
+                "Mass Communication fees"
+            ],
+            "responses": ["Mass Communication fees are 21000 L.E", "21000 L.E", "Fees are 21000 L.E"]
         }
+        
+        
     ]
 }
