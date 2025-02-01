@@ -1,41 +1,149 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <!-- Set the character encoding of the page to UTF-8 to support special characters -->
         <meta charset="UTF-8">
+        <!-- Title of the page displayed in the browser tab -->
         <title>Chatbot</title>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- إضافة Font Awesome -->
+        <!-- Link to Font Awesome library for icon usage -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        <!-- Link to the local CSS file for styling the page -->
         <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
         <style>
+            /* Style for the icons inside the send button */
             .send__button i {
-                margin-right: 10px; /* مسافة بين الأيقونتين */
+                margin-right: 10px;
+            }
+
+            /* Style for buttons like microphone, text, stop, and back buttons */
+            .microphone-btn, .text-btn, .stop-btn, .back-btn {
+                cursor: pointer;
+                position: relative;
+            }
+
+            /* Tooltip styles */
+            .tooltip {
+                position: absolute;
+                bottom: 100%;
+                left: 50%;
+                transform: translateX(-50%);
+                background-color: #333;
+                color: #fff;
+                padding: 5px 10px;
+                border-radius: 5px;
+                font-size: 12px;
+                visibility: hidden;
+                opacity: 0;
+                transition: opacity 0.3s, visibility 0.3s;
+                white-space: nowrap;
+            }
+
+            .microphone-btn:hover .tooltip,
+            .text-btn:hover .tooltip {
+                visibility: visible;
+                opacity: 1;
+            }
+
+            /* Style for the stop button when recording */
+            .stop-btn {
+                font-size: 30px;
+                color: rgb(102, 10, 232);
+                cursor: pointer;
+                margin-left: 10px;
+                display: none; /* Hidden by default */
+            }
+
+            /* Hide the microphone button during recording */
+            .microphone-btn.recording {
+                display: none;
+            }
+
+            /* Style for the recording status text */
+            .recording {
+                display: none;
+            }
+
+            /* Style for the back button */
+            .back-btn {
+                font-size: 20px;
+                color: rgb(81, 13, 108);
+                display: inline-block;
+                cursor: pointer;
+                font-weight: bold;
+                margin-left: 2px;
+                margin-top: 5px;
+            }
+
+            /* Style for the chatbox header */
+            .chatbox__header {
+                display: flex;
+                align-items: center;
+            }
+
+            /* Style for the image in the header */
+            .chatbox__image--header {
+                margin-right: 15px;
+            }
+
+            /* Style for the send button area */
+            .send__button {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+            }
+
+            .send__button i {
+                margin: 0 10px;
+            }
+
+            /* Style for the chatbox footer (bottom section) */
+            .chatbox__footer {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 10px;
             }
         </style>
     </head>
-
     <body>
         <div class="container">
             <div class="chatbox">
                 <div class="chatbox__support">
+                    <!-- Chatbox header with back button and user image -->
                     <div class="chatbox__header">
+                        <i class="fas fa-arrow-left back-btn" id="backBtn"></i>
                         <div class="chatbox__image--header">
-                            <img src="https://img.icons8.com/color/48/000000/circled-user-female-skin-type-5--v1.png"
-                                alt="image">
+                            <img src="https://img.icons8.com/color/48/000000/circled-user-female-skin-type-5--v1.png" alt="image">
                         </div>
                         <div class="chatbox__content--header">
-                            <h4 class="chatbox__heading--header">Voice-Enabled Chatbot</h4> <!-- تغيير النص هنا -->
+                            <h4 class="chatbox__heading--header">Voice-Enabled Chatbot</h4>
                         </div>
                     </div>
+                    <!-- Area to display messages -->
                     <div class="chatbox__messages">
                         <div></div>
                     </div>
+                    <!-- Footer of the chatbox with input and send buttons -->
                     <div class="chatbox__footer">
-                        <input type="text" placeholder="Write a message...">
-                        <button class="chatbox__send--footer send__button">
-                            <i class="fas fa-microphone"></i> <!-- أيقونة الميكروفون -->
-                            <i class="fas fa-paper-plane"></i> <!-- أيقونة الطائرة الورقية -->
-                        </button>
+                        <!-- Hidden text input field by default -->
+                        <input type="text" placeholder="Write a message..." id="messageInput" style="display: none;">
+                        <!-- Send buttons (microphone, text, stop) -->
+                        <div class="send__button">
+                            <div class="microphone-btn">
+                                <i class="fas fa-microphone"></i>
+                                <span class="tooltip">Record</span>
+                            </div>
+                            <div class="text-btn">
+                                <i class="fas fa-paper-plane"></i>
+                                <span class="tooltip">Text</span>
+                            </div>
+                            <i class="fas fa-stop-circle stop-btn"></i>
+                            <span class="recording">Recording Now...</span>
+                        </div>
                     </div>
                 </div>
+                <!-- Chatbox toggle button (appears outside the chatbox) -->
                 <div class="chatbox__button">
                     <button><img src="{{ url_for('static', filename='images/chatbox-icon.svg') }}" /></button>
                 </div>
@@ -43,9 +151,106 @@
         </div>
 
         <script>
-            $SCRIPT_ROOT = {{ request.script_root | tojson }};
+            // Select elements for easy reference in JS
+            const textBtn = document.querySelector('.text-btn');
+            const microphoneBtn = document.querySelector('.microphone-btn');
+            const stopBtn = document.querySelector('.stop-btn');
+            const recordingText = document.querySelector('.recording');
+            const messageInput = document.querySelector('#messageInput');
+            const backBtn = document.querySelector('#backBtn');
+            let recognition;
+
+            // Show text input when text button is clicked
+            textBtn.addEventListener('click', () => {
+                messageInput.style.display = 'block';
+                messageInput.focus();
+                microphoneBtn.style.display = 'none';
+                stopBtn.style.display = 'none';
+                if (recognition) recognition.stop(); // Stop speech recognition if active
+            });
+
+            // Start speech recognition when microphone button is clicked
+            microphoneBtn.addEventListener('click', () => {
+                messageInput.style.display = 'block';
+                messageInput.value = ""; // Clear input field
+                recordingText.style.display = 'inline-block';
+                microphoneBtn.style.display = 'none';
+                stopBtn.style.display = 'inline-block';
+                startSpeechRecognition();
+            });
+
+            // Stop recording and send the message when stop button is clicked
+            stopBtn.addEventListener('click', () => {
+                if (recognition) {
+                    recognition.stop(); // Stop speech recognition
+                    sendMessage(); // Send the transcribed message
+                    stopBtn.style.display = 'none';
+                    microphoneBtn.style.display = 'inline-block';
+                    recordingText.style.display = 'none';
+                }
+            });
+
+            // Function to send the message
+            function sendMessage() {
+                const message = messageInput.value.trim(); // Get trimmed message
+                if (message) {
+                    console.log("Message sent: " + message);
+                    messageInput.value = ""; // Clear input field
+                    stopBtn.style.display = 'none';
+                    microphoneBtn.style.display = 'inline-block';
+                    recordingText.style.display = 'none';
+                }
+            }
+
+            // Initialize speech recognition
+            function startSpeechRecognition() {
+                recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+                recognition.lang = "ar-SA"; // Set language to Arabic
+                recognition.start();
+
+                // Log when recording starts
+                recognition.onstart = function() {
+                    console.log("Recording started...");
+                };
+
+                // Stop recording when speech ends
+                recognition.onspeechend = function() {
+                    recognition.stop();
+                    stopBtn.style.display = 'none';
+                    microphoneBtn.style.display = 'inline-block';
+                    recordingText.style.display = 'none';
+                };
+
+                // Handle recognition result (get transcribed speech)
+                recognition.onresult = function(event) {
+                    const transcript = event.results[0][0].transcript; // Get transcript
+                    messageInput.value = transcript;
+                    recordingText.style.display = 'none';
+                };
+
+                // Handle recognition errors
+                recognition.onerror = function(event) {
+                    console.log("Error occurred in recognition: " + event.error);
+                    stopBtn.style.display = 'none';
+                    microphoneBtn.style.display = 'inline-block';
+                    recordingText.style.display = 'none';
+                };
+            }
+
+            // Reset interface when back button is clicked
+            backBtn.addEventListener('click', () => {
+                messageInput.style.display = 'none';
+                stopBtn.style.display = 'none';
+                microphoneBtn.style.display = 'inline-block';
+                recordingText.style.display = 'none';
+                if (recognition) recognition.stop(); // Stop recognition
+            });
         </script>
+        <!-- Setting script root dynamically using Flask -->
+        <script>
+            $SCRIPT_ROOT = {{ request.script_root | tojson }}; 
+        </script>
+        <!-- Linking to the external JavaScript file -->
         <script type="text/javascript" src="{{ url_for('static', filename='app.js') }}"></script>
     </body>
 </html>
-

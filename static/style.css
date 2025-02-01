@@ -1,15 +1,18 @@
+/* Apply box-sizing and reset margins and padding for all elements */
 * {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
+/* Set the default font family, weight, and size for the body */
 body {
     font-family: "Nunito", sans-serif;
     font-weight: 400;
     font-size: 100%;
 }
 
+/* Define primary and secondary gradients, and shadow effects */
 *,
 html {
     --primaryGradient: linear-gradient(93.12deg, hsl(183, 74%, 43%) 0.52%, #126f7b 100%);
@@ -19,16 +22,15 @@ html {
     --primary: #0c7dbe;
 }
 
-/* CHATBOX
-=============== */
+/* Chatbox container styling */
 .chatbox {
-    position: fixed; /* Fixed position for better control */
+    position: fixed;
     bottom: 30px;
-    left: 50%; /* Centers the chatbox horizontally */
-    transform: translateX(-50%); /* Adjust to be perfectly centered */
+    left: 50%;
+    transform: translateX(-50%);
 }
 
-/* CONTENT IS CLOSE */
+/* Styling when the chatbox is closed */
 .chatbox__support {
     display: flex;
     flex-direction: column;
@@ -40,18 +42,19 @@ html {
     transition: all 0.5s ease-in-out;
 }
 
-/* CONTENT IS OPEN */
+/* Styling when the chatbox is open (active) */
 .chatbox--active {
     transform: translateY(-40px);
     z-index: 123456;
     opacity: 1;
 }
 
-/* BUTTON */
+/* Button styling for the chatbox toggle button */
 .chatbox__button {
     text-align: right;
 }
 
+/* Send button inside the footer */
 .send__button {
     padding: 6px;
     background: transparent;
@@ -60,14 +63,14 @@ html {
     cursor: pointer;
 }
 
-/* HEADER */
+/* Header of the chatbox */
 .chatbox__header {
     position: sticky;
     top: 0;
     background: orange;
 }
 
-/* MESSAGES */
+/* Message area inside the chatbox */
 .chatbox__messages {
     margin-top: auto;
     display: flex;
@@ -75,26 +78,30 @@ html {
     flex-direction: column-reverse;
 }
 
+/* Styling for each message item */
 .messages__item {
     background: orange;
     max-width: 60.6%;
     width: fit-content;
 }
 
+/* Adjust message position for the operator */
 .messages__item--operator {
     margin-left: auto;
 }
 
+/* Adjust message position for the visitor */
 .messages__item--visitor {
     margin-right: auto;
 }
 
-/* FOOTER */
+/* Footer of the chatbox */
 .chatbox__footer {
     position: sticky;
     bottom: 0;
 }
 
+/* Styling for the main chatbox support area */
 .chatbox__support {
     background: #f9f9f9;
     height: 450px;
@@ -104,7 +111,7 @@ html {
     border-top-right-radius: 20px;
 }
 
-/* HEADER */
+/* Header styling with gradient background */
 .chatbox__header {
     background: var(--primaryGradient);
     display: flex;
@@ -117,10 +124,12 @@ html {
     box-shadow: var(--primaryBoxShadow);
 }
 
+/* Styling for the chatbox image in the header */
 .chatbox__image--header {
     margin-right: 10px;
 }
 
+/* Heading and description styling inside the header */
 .chatbox__heading--header {
     font-size: 1.2rem;
     color: white;
@@ -131,11 +140,12 @@ html {
     color: white;
 }
 
-/* Messages */
+/* Message area inside the chatbox */
 .chatbox__messages {
     padding: 0 20px;
 }
 
+/* Styling for individual message items */
 .messages__item {
     margin-top: 10px;
     background: #e0e0e0;
@@ -144,6 +154,7 @@ html {
     overflow-wrap: break-word;
 }
 
+/* Message styling for the visitor */
 .messages__item--visitor,
 .messages__item--typing {
     border-top-left-radius: 20px;
@@ -151,6 +162,7 @@ html {
     border-bottom-right-radius: 20px;
 }
 
+/* Message styling for the operator */
 .messages__item--operator {
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
@@ -159,7 +171,7 @@ html {
     color: white;
 }
 
-/* FOOTER */
+/* Footer styling with input field and send button */
 .chatbox__footer {
     display: flex;
     flex-direction: row;
@@ -173,6 +185,7 @@ html {
     margin-top: 20px;
 }
 
+/* Input field inside the footer */
 .chatbox__footer input {
     width: 80%;
     border: none;
@@ -181,13 +194,32 @@ html {
     text-align: left;
 }
 
+/* Send button styling inside the footer */
 .chatbox__send--footer {
     color: white;
 }
 
-.chatbox__button button,
-.chatbox__button button:focus,
-.chatbox__button button:visited {
+/* Style for the send button inside the footer */
+.chatbox__send--footer button {
+    width: 50px;
+    height: 50px;
+    background-color: #007bff;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Hover effect for the send button */
+.chatbox__send--footer button:hover {
+    background-color: #005f85;
+}
+
+/* Styling for the toggle chatbox button */
+.chatbox__button button {
     padding: 10px;
     background: white;
     border: none;
@@ -198,3 +230,28 @@ html {
     box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
     cursor: pointer;
 }
+
+/* Icon styling for voice, send, and back buttons */
+.microphone-btn,
+.text-btn,
+.back-btn {
+    color: white;
+    font-size: 20px;  /* Set icon size */
+    cursor: pointer;
+}
+
+/* Hover effect for microphone button */
+.microphone-btn:hover {
+    color: #126f7b; /* Color on hover */
+}
+
+/* Hover effect for send button */
+.text-btn:hover {
+    color: #1db1e7; /* Color on hover */
+}
+
+/* Hover effect for back button */
+.back-btn:hover {
+    color: #0c7dbe; /* Color on hover */
+}
+
