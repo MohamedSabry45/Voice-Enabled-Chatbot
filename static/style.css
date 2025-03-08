@@ -232,13 +232,6 @@ html {
 }
 
 /* Icon styling for voice, send, and back buttons */
-.microphone-btn,
-.text-btn,
-.back-btn {
-    color: white;
-    font-size: 20px;  /* Set icon size */
-    cursor: pointer;
-}
 
 /* Hover effect for microphone button */
 .microphone-btn:hover {

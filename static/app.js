@@ -4,8 +4,8 @@ class Chatbox {
             openButton: document.querySelector(".chatbox__button"),
             chatBox: document.querySelector(".chatbox__support"),
             sendButton: document.querySelector(".send__button"),
-            textButton: document.querySelector(".send__button i.fa-paper-plane"), // أيقونة الكتابة
-            microphoneButton: document.querySelector(".send__button i.fa-microphone"), // أيقونة الميكروفون
+            textButton: document.querySelector(".send__button .text-btn"), // أيقونة الكتابة
+            microphoneButton: document.querySelector(".send__button .microphone-btn"), // أيقونة الميكروفون
             inputField: document.querySelector(".chatbox__footer input"), // حقل النص
             recordText: document.querySelector(".send__button span"), // النص الذي يعرض عند التسجيل
         };
@@ -30,7 +30,18 @@ class Chatbox {
         // إضافة EventListener للميكروفون
         this.args.microphoneButton.addEventListener("click", () => this.toggleVoiceRecognition());
         // إضافة EventListener لزر الكتابة
-        this.args.textButton.addEventListener("click", () => this.switchToTextMode());
+        this.args.textButton.addEventListener("click", () => {
+            this.switchToTextMode();
+        
+            // Show the plane icon
+            const planeIcon = document.querySelector('.sendIcon');
+            planeIcon.classList.remove('d-none');
+        
+            // Hide the settings button
+            const settingsBtn = document.querySelector('.settings-btn');
+            settingsBtn.classList.add('d-none');
+        });
+        
 
         // إضافة EventListener للضغط على Enter
         this.args.inputField.addEventListener("keyup", (event) => {
@@ -71,7 +82,7 @@ class Chatbox {
         if (text1 === "") {
             return;
         }
-
+ 
         // إذا كان التسجيل الصوتي مفعلاً، توقفه
         if (this.isVoiceMode) {
             this.recognition.stop();
@@ -93,19 +104,37 @@ class Chatbox {
         })
             .then((r) => r.json())
             .then((r) => {
+                // Stop any ongoing voice output
+                 window.speechSynthesis.cancel();
+        
                 let msg2 = { name: "Sam", message: r.answer };
                 this.messages.push(msg2);
                 this.updateChatText(chatbox);
                 textField.value = "";
-                // بعد إرسال الرسالة، نعرض أيقونة الميكروفون مجددًا
+        
+                // Show the microphone button again
                 this.args.microphoneButton.style.display = 'inline-block';
-                this.args.recordText.textContent = 'Record Now'; // إعادة النص إلى "Record Now"
+                this.args.recordText.textContent = 'Record Now'; // Reset record text
+        
+                // Optional: Speak the response (if needed)
+                //speakText(r.answer);
             })
             .catch((error) => {
                 console.error("Error:", error);
                 this.updateChatText(chatbox);
                 textField.value = "";
             });
+        
+    }
+    
+    speakText(text) {
+        if ('speechSynthesis' in window) {
+            const utterance = new SpeechSynthesisUtterance(text);
+            utterance.lang = 'ar-SA'; // Arabic voice
+            window.speechSynthesis.speak(utterance);
+        } else {
+            console.log("Text-to-Speech not supported in this browser.");
+        }
     }
 
     updateChatText(chatbox) {
