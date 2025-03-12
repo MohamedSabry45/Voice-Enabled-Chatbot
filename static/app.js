@@ -1,6 +1,7 @@
 class Chatbox {
     constructor() {
         this.args = {
+            
             openButton: document.querySelector(".chatbox__button"),
             chatBox: document.querySelector(".chatbox__support"),
             sendButton: document.querySelector(".send__button"),
@@ -9,11 +10,13 @@ class Chatbox {
             inputField: document.querySelector(".chatbox__footer input"), // حقل النص
             recordText: document.querySelector(".send__button span"), // النص الذي يعرض عند التسجيل
         };
+        
 
         this.state = false;
         this.messages = [];
         this.isVoiceMode = false; // تحديد وضع الصوت
         this.isRecording = false; // إضافة متغير لتحديد ما إذا كان الميكروفون يعمل أو لا
+        
 
         // التحقق من دعم SpeechRecognition
         const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
@@ -21,6 +24,7 @@ class Chatbox {
             alert("Voice recognition is not supported in your browser.");
             return; // الخروج إذا لم يكن التعرف على الصوت مدعومًا
         }
+        
 
         this.recognition = new SpeechRecognition();
         this.recognition.lang = 'en-US'; // تحديد اللغة (اختياري)
@@ -105,7 +109,7 @@ class Chatbox {
             .then((r) => r.json())
             .then((r) => {
                 // Stop any ongoing voice output
-                 window.speechSynthesis.cancel();
+                window.speechSynthesis.cancel();
         
                 let msg2 = { name: "Sam", message: r.answer };
                 this.messages.push(msg2);
@@ -117,7 +121,7 @@ class Chatbox {
                 this.args.recordText.textContent = 'Record Now'; // Reset record text
         
                 // Optional: Speak the response (if needed)
-                //speakText(r.answer);
+                speakText(r.answer);
             })
             .catch((error) => {
                 console.error("Error:", error);
@@ -127,15 +131,6 @@ class Chatbox {
         
     }
     
-    speakText(text) {
-        if ('speechSynthesis' in window) {
-            const utterance = new SpeechSynthesisUtterance(text);
-            utterance.lang = 'ar-SA'; // Arabic voice
-            window.speechSynthesis.speak(utterance);
-        } else {
-            console.log("Text-to-Speech not supported in this browser.");
-        }
-    }
 
     updateChatText(chatbox) {
         var html = "";

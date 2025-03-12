@@ -13,7 +13,7 @@
         <style>
             /* Style for the icons inside the send button */
             .send__button i {
-                margin-right: 10px;
+                margin-left: 10px;
             }
 
             /* Style for buttons like microphone, text, stop, and back buttons */
@@ -145,9 +145,9 @@
                             <div class="dropdown">
                            
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                  <a class="dropdown-item text-btn" href="#">Text</a>
+                                  <a class="dropdown-item text-btn" href="#">Text & Voice</a>
                                   <a class="dropdown-item microphone-btn" href="#">Voice</a>
-                                  <a class="dropdown-item" href="#">Text & Voice</a>
+                                  <a class="dropdown-item" href="#">Text</a>
                                 </div>
                               </div>
                             
@@ -234,6 +234,7 @@
                     microphoneBtn.style.display = 'inline-block';
                     recordingText.style.display = 'none';
                 };
+                
 
                 // Handle recognition result (get transcribed speech)
                 recognition.onresult = function(event) {
@@ -267,12 +268,56 @@
 
     if (recognition) recognition.stop(); // Stop recognition
 });
+
         </script>
         <!-- Setting script root dynamically using Flask -->
         <script>
             $SCRIPT_ROOT = {{ request.script_root | tojson }}; 
         </script>
         <!-- Linking to the external JavaScript file -->
+         <!-- text -->
+        <script>
+            const textOptionBtn = document.querySelector('.dropdown-item[href="#"]:last-child');
+        
+            textOptionBtn.addEventListener('click', () => {
+                messageInput.style.display = 'block';
+                messageInput.focus();
+                microphoneBtn.style.display = 'none';
+                stopBtn.style.display = 'none';
+        
+                // تعطيل التعرف على الصوت بالكامل
+                if (recognition) {
+                    recognition.onend = null;
+                    recognition.onerror = null;
+                    recognition.abort();
+                    recognition.stop();
+                    recognition = null;
+                    console.log("التعرف على الصوت تم إيقافه بالكامل.");
+                }
+        
+                // تعطيل أي أصوات ناطقة في الصفحة
+                window.speechSynthesis.cancel();
+                console.log("تم إلغاء جميع الأصوات الناطقة.");
+            });
+        
+            // منع أي محاولة لإعادة تشغيل الصوت
+            function restartVoiceRecognition() {
+                if (window.SpeechRecognition || window.webkitSpeechRecognition) {
+                    console.log("محاولة غير مسموح بها لتشغيل الصوت! تم الرفض.");
+                    try {
+                        window.SpeechRecognition = undefined;
+                        window.webkitSpeechRecognition = undefined;
+                    } catch (error) {
+                        console.log("فشل في منع التشغيل: " + error);
+                    }
+                }
+            }
+        
+            document.addEventListener('click', restartVoiceRecognition);
+        </script>
+        
+        <!-- الصوت دلوقتي لازم يتوقف بالكامل ويرد كتابة فقط! -->
+        
 
         <script type="text/javascript" src="{{ url_for('static', filename='app.js') }}"></script>
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
