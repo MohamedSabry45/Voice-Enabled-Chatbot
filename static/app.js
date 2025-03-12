@@ -200,8 +200,11 @@ class Chatbox {
             }
         };
         this.recognition.onresult = (event) => this.handleVoiceInput(event);
+        
     }
+    
 }
+
 
 // إنشاء الكائن وتشغيل الدالة initVoiceRecognition
 const chatbox = new Chatbox();
