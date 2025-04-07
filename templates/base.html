@@ -1,347 +1,361 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Chatbot</title>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-        <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-        <style>
-            /* كل الستايلات الأصلية كما هي */
-            .send__button i {
-                margin-left: 10px;
-            }
 
-            .microphone-btn, .text-btn, .stop-btn, .back-btn, .agent-btn {
-                cursor: pointer;
-                position: relative;
-            }
+<head>
+    <meta charset="UTF-8">
+    <title>Chatbot</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        /* كل الستايلات الأصلية كما هي */
+        .send__button i {
+            margin-left: 10px;
+        }
 
-            .tooltip {
-                position: absolute;
-                bottom: 100%;
-                left: 50%;
-                transform: translateX(-50%);
-                background-color: #333;
-                color: #fff;
-                padding: 5px 10px;
-                border-radius: 5px;
-                font-size: 12px;
-                visibility: hidden;
-                opacity: 0;
-                transition: opacity 0.3s, visibility 0.3s;
-                white-space: nowrap;
-            }
+        .microphone-btn,
+        .text-btn,
+        .stop-btn,
+        .back-btn,
+        .agent-btn {
+            cursor: pointer;
+            position: relative;
+        }
 
-            .stop-btn {
-                font-size: 30px;
-                color: rgb(102, 10, 232);
-                cursor: pointer;
-                margin-left: 10px;
-                display: none;
-            }
+        .tooltip {
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #333;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 12px;
+            visibility: hidden;
+            opacity: 0;
+            transition: opacity 0.3s, visibility 0.3s;
+            white-space: nowrap;
+        }
 
-            .microphone-btn.recording {
-                display: none;
-            }
+        .stop-btn {
+            font-size: 30px;
+            color: rgb(102, 10, 232);
+            cursor: pointer;
+            margin-left: 10px;
+            display: none;
+        }
 
-            .recording {
-                display: none;
-            }
+        .microphone-btn.recording {
+            display: none;
+        }
 
-            .back-btn {
-                font-size: 20px;
-                color: rgb(81, 13, 108);
-                display: inline-block;
-                cursor: pointer;
-                font-weight: bold;
-                margin-left: 2px;
-                margin-top: 5px;
-            }
+        .recording {
+            display: none;
+        }
 
-            .chatbox__header {
-                display: flex;
-                align-items: center;
-            }
+        .back-btn {
+            font-size: 20px;
+            color: rgb(81, 13, 108);
+            display: inline-block;
+            cursor: pointer;
+            font-weight: bold;
+            margin-left: 2px;
+            margin-top: 5px;
+        }
 
-            .chatbox__image--header {
-                margin-right: 15px;
-            }
+        .chatbox__header {
+            display: flex;
+            align-items: center;
+        }
 
-            .send__button {
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                width: fit-content;
-            }
+        .chatbox__image--header {
+            margin-right: 15px;
+        }
 
-            .send__button i {
-                margin: 0 10px;
-            }
+        .send__button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: fit-content;
+        }
 
-            .chatbox__footer {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                padding: 10px;
-            }
-            
-            /* ستايلات جديدة للـ Agent dropdown */
-            .agent-dropdown {
-                position: relative;
-                display: inline-block;
-            }
-            
-            .agent-dropdown-menu {
-                position: absolute;
-                bottom: 100%;
-                right: 0;
-                background: white;
-                border-radius: 5px;
-                box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-                padding: 5px 0;
-                min-width: 150px;
-                z-index: 1000;
-                display: none;
-            }
-            
-            .agent-dropdown-item {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                padding: 8px 15px;
-                color: #333;
-                text-decoration: none;
-            }
-            
-            .agent-dropdown-item:hover {
-                background: #f5f5f5;
-            }
-            
-            .agent-dropdown-item i:first-child {
-                margin-right: 10px;
-            }
-            
-            .toggle-icon {
-                color: #28a745;
-            }
-            
-            .toggle-icon.off {
-                color: #dc3545;
-            }
-        </style>
-    </head>
-    <body>
-        <div class="container">
-            <div class="chatbox">
-                <div class="chatbox__support">
-                    <div class="chatbox__header">
-                        <i class="fas fa-arrow-left back-btn" id="backBtn"></i>
-                        <div class="chatbox__image--header">
-                            <img src="https://img.icons8.com/color/48/000000/circled-user-female-skin-type-5--v1.png" alt="image">
-                        </div>
-                        <div class="chatbox__content--header">
-                            <h4 class="chatbox__heading--header">Voice-Enabled Chatbot</h4>
-                        </div>
+        .send__button i {
+            margin: 0 10px;
+        }
+
+        .chatbox__footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+        }
+
+        /* ستايلات جديدة للـ Agent dropdown */
+        .agent-dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .agent-dropdown-menu {
+            position: absolute;
+            bottom: 100%;
+            right: 0;
+            background: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 5px 0;
+            min-width: 150px;
+            z-index: 1000;
+            display: none;
+        }
+
+        .agent-dropdown-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 8px 15px;
+            color: #333;
+            text-decoration: none;
+        }
+
+        .agent-dropdown-item:hover {
+            background: #f5f5f5;
+        }
+
+        .agent-dropdown-item i:first-child {
+            margin-right: 10px;
+        }
+
+        .toggle-icon {
+            color: #28a745;
+        }
+
+        .toggle-icon.off {
+            color: #dc3545;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="chatbox">
+            <div class="chatbox__support">
+                <div class="chatbox__header">
+                    <i class="fas fa-arrow-left back-btn" id="backBtn"></i>
+                    <div class="chatbox__image--header">
+                        <img src="https://img.icons8.com/color/48/000000/circled-user-female-skin-type-5--v1.png"
+                            alt="image">
                     </div>
-                    <div class="chatbox__messages">
-                        <div></div>
-                    </div>
-                    <div class="chatbox__footer">
-                        <input type="text" placeholder="Write a message..." id="messageInput" style="display: none;">
-                        <div class="send__button">
-                            <div class="d-none sendIcon">
-                                <i class="fas fa-paper-plane"></i>
-                            </div>
-                            <div class="settings-btn" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                                <i class="fas fa-cog" style="color: #fff;"></i>
-                                <span class="tooltip">Settings</span>
-                            </div>
-                            <div class="dropdown">
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <a class="dropdown-item text-btn" href="#">
-                                        <i class="fas fa-keyboard"></i> Text
-                                    </a>
-                                    <a class="dropdown-item microphone-btn" href="#">
-                                        <i class="fas fa-microphone"></i> Voice
-                                    </a>
-                                </div>
-                            </div>
-                            <i class="fas fa-stop-circle stop-btn"></i>
-                            <span class="recording">Recording Now...</span>
-                        </div>
-                        
-                        <!-- إضافة dropdown الـ Agent -->
-                        <div class="agent-dropdown">
-                            <div class="agent-btn" id="agentDropdownButton">
-                                <i class="fas fa-user-secret"></i>
-                            </div>
-                            <div class="agent-dropdown-menu" id="agentDropdownMenu">
-                                <a href="#" class="agent-dropdown-item agent-text-mode">
-                                    <i class="fas fa-keyboard"></i>
-                                    <span>Text</span>
-                                    <i class="fas fa-toggle-on toggle-icon agent-text-toggle"></i>
-                                </a>
-                                <a href="#" class="agent-dropdown-item agent-voice-mode">
-                                    <i class="fas fa-microphone"></i>
-                                    <span>Voice</span>
-                                    <i class="fas fa-toggle-off toggle-icon agent-voice-toggle"></i>
-                                </a>
-                            </div>
-                        </div>
+                    <div class="chatbox__content--header">
+                        <h4 class="chatbox__heading--header">Voice-Enabled Chatbot</h4>
                     </div>
                 </div>
-                <div class="chatbox__button">
-                    <button><img src="{{ url_for('static', filename='images/chatbox-icon.svg') }}" /></button>
+                <div class="chatbox__messages">
+                    <div></div>
+                </div>
+                <div class="chatbox__footer">
+                    <input type="text" placeholder="Write a message..." id="messageInput" style="display: none;">
+                    <div class="send__button">
+                        <div class="d-none sendIcon">
+                            <i class="fas fa-paper-plane"></i>
+                        </div>
+                        <div class="settings-btn" id="dropdownMenuButton" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            <i class="fas fa-cog" style="color: #0a0a0a;"></i>
+                            <span class="tooltip">Settings</span>
+                        </div>
+                        <div class="dropdown">
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <a class="dropdown-item text-btn" href="#">
+                                    <i class="fas fa-keyboard"></i> Text
+                                </a>
+                                <a class="dropdown-item microphone-btn" href="#">
+                                    <i class="fas fa-microphone"></i> Voice
+                                </a>
+                            </div>
+                        </div>
+                        <i class="fas fa-stop-circle stop-btn"></i>
+                        <span class="recording">Recording Now...</span>
+                    </div>
+
+                    <!-- إضافة dropdown الـ Agent -->
+                    <div class="agent-dropdown">
+                        <div class="agent-btn" id="agentDropdownButton">
+                            <i class="fas fa-user-secret"></i>
+                        </div>
+                        <div class="agent-dropdown-menu" id="agentDropdownMenu">
+                            <a href="#" class="agent-dropdown-item agent-text-mode">
+                                <i class="fas fa-keyboard"></i>
+                                <span>Text</span>
+                                <i class="fas fa-toggle-on toggle-icon agent-text-toggle"></i>
+                            </a>
+                            <a href="#" class="agent-dropdown-item agent-voice-mode">
+                                <i class="fas fa-microphone"></i>
+                                <span>Voice</span>
+                                <i class="fas fa-toggle-off toggle-icon agent-voice-toggle"></i>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
+            <div class="chatbox__button">
+                <button><img src="{{ url_for('static', filename='images/chatbox-icon.svg') }}" /></button>
+            </div>
         </div>
+    </div>
 
-        <script>
-            // كل الجافاسكريبت الأصلي كما هو
-            const textBtn = document.querySelector('.text-btn');
-            const microphoneBtn = document.querySelector('.microphone-btn');
-            const stopBtn = document.querySelector('.stop-btn');
-            const recordingText = document.querySelector('.recording');
-            const messageInput = document.querySelector('#messageInput');
-            const backBtn = document.querySelector('#backBtn');
-            let recognition;
+    <script>
+        // كل الجافاسكريبت الأصلي كما هو
+        const textBtn = document.querySelector('.text-btn');
+        const microphoneBtn = document.querySelector('.microphone-btn');
+        const stopBtn = document.querySelector('.stop-btn');
+        const recordingText = document.querySelector('.recording');
+        const messageInput = document.querySelector('#messageInput');
+        const backBtn = document.querySelector('#backBtn');
+        let recognition;
 
-            // وظائف الـ Agent dropdown الجديدة
-            const agentDropdownButton = document.getElementById('agentDropdownButton');
-            const agentDropdownMenu = document.getElementById('agentDropdownMenu');
-            const agentTextToggle = document.querySelector('.agent-text-toggle');
-            const agentVoiceToggle = document.querySelector('.agent-voice-toggle');
-            const agentTextMode = document.querySelector('.agent-text-mode');
-            const agentVoiceMode = document.querySelector('.agent-voice-mode');
-            
-            let agentCurrentMode = 'voice'; // الوضع الافتراضي
-            
-            // فتح/إغلاق dropdown الـ Agent
-            agentDropdownButton.addEventListener('click', (e) => {
-                e.stopPropagation();
-                agentDropdownMenu.style.display = agentDropdownMenu.style.display === 'block' ? 'none' : 'block';
-            });
-            
-            // إغلاق الـ dropdown عند النقر خارجها
-            document.addEventListener('click', () => {
-                agentDropdownMenu.style.display = 'none';
-            });
-            
-            // التبديل بين وضع النص والصوت للـ Agent
-            agentTextMode.addEventListener('click', (e) => {
-                e.preventDefault();
-                if (agentCurrentMode !== 'text') {
-                    agentCurrentMode = 'text';
-                    agentTextToggle.classList.remove('fa-toggle-off', 'off');
-                    agentTextToggle.classList.add('fa-toggle-on');
-                    agentVoiceToggle.classList.remove('fa-toggle-on');
-                    agentVoiceToggle.classList.add('fa-toggle-off', 'off');
-                    console.log("Agent mode switched to Text");
-                }
-            });
-            
-            agentVoiceMode.addEventListener('click', (e) => {
-                e.preventDefault();
-                if (agentCurrentMode !== 'voice') {
-                    agentCurrentMode = 'voice';
-                    agentVoiceToggle.classList.remove('fa-toggle-off', 'off');
-                    agentVoiceToggle.classList.add('fa-toggle-on');
-                    agentTextToggle.classList.remove('fa-toggle-on');
-                    agentTextToggle.classList.add('fa-toggle-off', 'off');
-                    console.log("Agent mode switched to Voice");
-                }
-            });
+        // وظائف الـ Agent dropdown الجديدة
+        const agentDropdownButton = document.getElementById('agentDropdownButton');
+        const agentDropdownMenu = document.getElementById('agentDropdownMenu');
+        const agentTextToggle = document.querySelector('.agent-text-toggle');
+        const agentVoiceToggle = document.querySelector('.agent-voice-toggle');
+        const agentTextMode = document.querySelector('.agent-text-mode');
+        const agentVoiceMode = document.querySelector('.agent-voice-mode');
 
-            // بقية الجافاسكريبت الأصلي
-            textBtn?.addEventListener('click', () => {
-                messageInput.style.display = 'block';
-                messageInput.focus();
-                microphoneBtn.style.display = 'none';
-                stopBtn.style.display = 'none';
-                if (recognition) recognition.stop();
-            });
+        let agentCurrentMode = 'voice'; // الوضع الافتراضي
 
-            microphoneBtn?.addEventListener('click', () => {
-                messageInput.style.display = 'block';
-                messageInput.value = "";
-                recordingText.style.display = 'inline-block';
-                microphoneBtn.style.display = 'none';
-                stopBtn.style.display = 'inline-block';
-                startSpeechRecognition();
-            });
+        // فتح/إغلاق dropdown الـ Agent
+        agentDropdownButton.addEventListener('click', (e) => {
+            e.stopPropagation();
+            agentDropdownMenu.style.display = agentDropdownMenu.style.display === 'block' ? 'none' : 'block';
+        });
 
-            stopBtn?.addEventListener('click', () => {
-                if (recognition) {
-                    recognition.stop();
-                    sendMessage();
-                    stopBtn.style.display = 'none';
-                    microphoneBtn.style.display = 'inline-block';
-                    recordingText.style.display = 'none';
-                }
-            });
+        // إغلاق الـ dropdown عند النقر خارجها
+        document.addEventListener('click', () => {
+            agentDropdownMenu.style.display = 'none';
+        });
 
-            function sendMessage() {
-                const message = messageInput.value.trim();
-                if (message) {
-                    console.log("Message sent: " + message);
-                    messageInput.value = "";
-                    stopBtn.style.display = 'none';
-                    microphoneBtn.style.display = 'inline-block';
-                    recordingText.style.display = 'none';
-                }
-            }
+        agentTextMode.addEventListener('click', (e) => {
+    e.preventDefault();
+    if (agentCurrentMode !== 'text') {
+        agentCurrentMode = 'text';
+        // Update UI toggles
+        agentTextToggle.classList.remove('fa-toggle-off', 'off');
+        agentTextToggle.classList.add('fa-toggle-on');
+        agentVoiceToggle.classList.remove('fa-toggle-on');
+        agentVoiceToggle.classList.add('fa-toggle-off', 'off');
+        
+        // Enforce Text Mode (disables voice)
+        chatbox.setResponseMode('text');
+    }
+});
 
-            function startSpeechRecognition() {
-                recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
-                recognition.lang = "ar-SA";
-                recognition.start();
+agentVoiceMode.addEventListener('click', (e) => {
+    e.preventDefault();
+    if (agentCurrentMode !== 'voice') {
+        agentCurrentMode = 'voice';
+        // Update UI toggles
+        agentVoiceToggle.classList.remove('fa-toggle-off', 'off');
+        agentVoiceToggle.classList.add('fa-toggle-on');
+        agentTextToggle.classList.remove('fa-toggle-on');
+        agentTextToggle.classList.add('fa-toggle-off', 'off');
+        
+        // Enforce Voice Mode
+        chatbox.setResponseMode('voice');
+    }
+});
+        // بقية الجافاسكريبت الأصلي
+        textBtn?.addEventListener('click', () => {
+            messageInput.style.display = 'block';
+            messageInput.focus();
+            microphoneBtn.style.display = 'none';
+            stopBtn.style.display = 'none';
+            if (recognition) recognition.stop();
+        });
 
-                recognition.onstart = function() {
-                    console.log("Recording started...");
-                };
+        microphoneBtn?.addEventListener('click', () => {
+            messageInput.style.display = 'block';
+            messageInput.value = "";
+            recordingText.style.display = 'inline-block';
+            microphoneBtn.style.display = 'none';
+            stopBtn.style.display = 'inline-block';
+            startSpeechRecognition();
+        });
 
-                recognition.onspeechend = function() {
-                    recognition.stop();
-                    stopBtn.style.display = 'none';
-                    microphoneBtn.style.display = 'inline-block';
-                    recordingText.style.display = 'none';
-                };
-                
-                recognition.onresult = function(event) {
-                    const transcript = event.results[0][0].transcript;
-                    messageInput.value = transcript;
-                    recordingText.style.display = 'none';
-                };
-
-                recognition.onerror = function(event) {
-                    console.log("Error occurred in recognition: " + event.error);
-                    stopBtn.style.display = 'none';
-                    microphoneBtn.style.display = 'inline-block';
-                    recordingText.style.display = 'none';
-                };
-            }
-
-            backBtn.addEventListener('click', () => {
-                messageInput.style.display = 'none';
+        stopBtn?.addEventListener('click', () => {
+            if (recognition) {
+                recognition.stop();
+                sendMessage();
                 stopBtn.style.display = 'none';
                 microphoneBtn.style.display = 'inline-block';
                 recordingText.style.display = 'none';
+            }
+        });
 
-                const planeIcon = document.querySelector('.sendIcon');
-                planeIcon.classList.add('d-none');
+        function sendMessage() {
+            const message = messageInput.value.trim();
+            if (message) {
+                console.log("Message sent: " + message);
+                messageInput.value = "";
+                stopBtn.style.display = 'none';
+                microphoneBtn.style.display = 'inline-block';
+                recordingText.style.display = 'none';
+            }
+        }
 
-                const settingsBtn = document.querySelector('.settings-btn');
-                settingsBtn.classList.remove('d-none');
+        function startSpeechRecognition() {
+            recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+            recognition.lang = "ar-SA";
+            recognition.start();
 
-                if (recognition) recognition.stop();
-            });
+            recognition.onstart = function () {
+                console.log("Recording started...");
+            };
 
-            $SCRIPT_ROOT = {{ request.script_root | tojson }};
-        </script>
-        
-        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-        <script src="{{ url_for('static', filename='app.js') }}"></script>
-    </body>
+            recognition.onspeechend = function () {
+                recognition.stop();
+                stopBtn.style.display = 'none';
+                microphoneBtn.style.display = 'inline-block';
+                recordingText.style.display = 'none';
+            };
+
+            recognition.onresult = function (event) {
+                const transcript = event.results[0][0].transcript;
+                messageInput.value = transcript;
+                recordingText.style.display = 'none';
+            };
+
+            recognition.onerror = function (event) {
+                console.log("Error occurred in recognition: " + event.error);
+                stopBtn.style.display = 'none';
+                microphoneBtn.style.display = 'inline-block';
+                recordingText.style.display = 'none';
+            };
+        }
+
+        backBtn.addEventListener('click', () => {
+            messageInput.style.display = 'none';
+            stopBtn.style.display = 'none';
+            microphoneBtn.style.display = 'inline-block';
+            recordingText.style.display = 'none';
+
+            const planeIcon = document.querySelector('.sendIcon');
+            planeIcon.classList.add('d-none');
+
+            const settingsBtn = document.querySelector('.settings-btn');
+            settingsBtn.classList.remove('d-none');
+
+            if (recognition) recognition.stop();
+        });
+
+        //  $SCRIPT_ROOT = {{ request.script_root | tojson }};
+        const $SCRIPT_ROOT = document.body.getAttribute('data-script-root');
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+
 </html>
