@@ -11,11 +11,16 @@
                 "greetings",
                 "what's up?",
                 "how is it going",
-                "welcome to Al Shorouk Academy"
+                "welcome to Al Shorouk Academy",
+                "how are you"
             ],
-            "responses": ["hello", "hey!", "what can I do for you?", "nice to have you here at Al Shorouk Academy"]
+            "responses": [
+                "hello",
+                "hey!",
+                "what can I do for you?",
+                "nice to have you here at Al Shorouk Academy"
+            ]
         },
-
         {
             "tag": "goodbye",
             "patterns": [
@@ -28,62 +33,83 @@
                 "see ya",
                 "thank you for visiting Al Shorouk Academy"
             ],
-            "responses": ["have a nice day", "goodbye", "we hope to see you again at Al Shorouk Academy"]
-        },
-
-        {
-            "tag": "admissions",
-            "patterns": [
-                "how can I apply to Al Shorouk Academy?",
-                "what are the admission requirements?",
-                "when is the application deadline?",
-                "can I schedule a tour of Al Shorouk Academy?",
-                "admissions"
-            ],
             "responses": [
-                "You can apply to Al Shorouk Academy through our website or by visiting our admissions office. The admission requirements are listed on our website. The application deadline is [insert date here]. You can schedule a tour by contacting our admissions office."
+                "have a nice day",
+                "goodbye",
+                "we hope to see you again at Al Shorouk Academy"
             ]
         },
-
         {
-            "tag": "programs",
+            "tag": "Health and Wellness",
             "patterns": [
-                "what programs does Al Shorouk Academy offer?",
-                "can you tell me more about Al Shorouk Academy's programs?",
-                "what are the program requirements?",
-                "programs"
+                "What health services are available on campus?",
+                "How do I schedule an appointment with a doctor?",
+                "Are there any mental health counseling services?",
+                "What is the policy on health insurance for students?",
+                "Are there any fitness classes or programs?",
+                "How do I access the campus gym?",
+                "Are there any nutrition counseling services?",
+                "What is the process for getting a flu shot on campus?",
+                "Are there any resources for stress management?",
+                "What is the policy on medical leave?",
+                "Are there any support groups for students?",
+                "How do I access emergency medical services?",
+                "Are there any wellness workshops or events?",
+                "What is the policy on vaccinations?",
+                "Are there any resources for sexual health?",
+                "How do I request accommodations for a disability?",
+                "Are there any resources for substance abuse?",
+                "What is the process for getting a prescription filled?",
+                "Are there any resources for sleep health?",
+                "How do I access telehealth services?",
+                "healthcare"
             ],
             "responses": [
-                "Al Shorouk Academy offers a variety of programs in [insert fields here]. You can find more information about our programs on our website. The program requirements are also listed on our website."
+                "There are many health clubs, gyms and specialized clinics at the university"
             ]
         },
-
         {
-            "tag": "scholarships",
+            "tag": "Financial Aid and Scholarships",
             "patterns": [
                 "does Al Shorouk Academy offer scholarships?",
                 "what are the scholarship options at Al Shorouk Academy?",
                 "how can I apply for a scholarship at Al Shorouk Academy?",
-                "scholarships"
+                "scholarships",
+                "What types of financial aid are available?",
+                "How do I apply for a scholarship?",
+                "Are there any merit-based scholarships?",
+                "What is the deadline for financial aid applications?",
+                "Can international students apply for financial aid?",
+                "What is the average financial aid package?",
+                "Are there any work-study programs?",
+                "How do I check the status of my financial aid application?",
+                "What is the policy on student loans?",
+                "Are there any grants available for low-income students?",
+                "How do I renew my scholarship?",
+                "What is the FAFSA code for the university?",
+                "Are there any scholarships for specific majors?",
+                "What is the cost of attendance?",
+                "Are there any payment plans for tuition?",
+                "How do I apply for a tuition waiver?",
+                "What is the policy on refunds?",
+                "Are there any emergency funds for students?",
+                "How do I report changes in my financial situation?",
+                "Are there any scholarships for graduate students?",
+                "Are there grants for low-income students?",
+                "Can I get a tuition waiver?",
+                "What is the FAFSA code for Al Shorouk Academy?",
+                "Are there scholarships for women in STEM?",
+                "How do I apply for a work-study program?",
+                "What is the policy on student loan repayment?",
+                "Are there emergency funds for students?",
+                "Can I get financial aid for summer courses?",
+                "How do I report a change in my financial situation?",
+                "Are there fee payment plans?"
             ],
             "responses": [
                 "Yes, Al Shorouk Academy offers scholarships to eligible students. You can find more information about our scholarship options on our website. The application process for scholarships is also listed on our website."
             ]
         },
-
-        {
-            "tag": "student life",
-            "patterns": [
-                "what is student life like at Al Shorouk Academy?",
-                "are there any student clubs or organizations at Al Shorouk Academy?",
-                "what extracurricular activities are available at Al Shorouk Academy?",
-                "student life"
-            ],
-            "responses": [
-                "Student life at Al Shorouk Academy is vibrant and diverse. We have a variety of student clubs and organizations that you can join, and there are many extracurricular activities available, such as [insert activities here]. You can find more information about student life on our website."
-            ]
-        },
-
         {
             "tag": "faculty",
             "patterns": [
@@ -97,7 +123,6 @@
                 "The faculty members at Al Shorouk Academy are highly qualified and experienced in their fields. You can find more information about our faculty on our website. The research interests of our faculty are also listed on our website."
             ]
         },
-
         {
             "tag": "courses",
             "patterns": [
@@ -116,34 +141,38 @@
                 "What is the campus like at Al Shorouk Academy?",
                 "Can you describe the facilities and amenities available on the Al Shorouk Academy campus?",
                 "What are the campus life and student activities like at Al Shorouk Academy?",
+                "How do I apply for on-campus housing?",
+                "What dining options are available on campus?",
                 "campus"
             ],
             "responses": [
                 "Al Shorouk Academy has a modern and well-equipped campus with state-of-the-art facilities and amenities. We have spacious classrooms, laboratories, libraries, sports facilities, and more. We also have a vibrant student community with various clubs and activities that provide opportunities for personal and professional growth. You can find more details on our website or contact our admissions team."
             ]
         },
-
         {
             "tag": "online learning",
             "patterns": [
                 "Does Al Shorouk Academy offer online learning programs?",
                 "Can you tell me more about the online courses offered at Al Shorouk Academy?",
                 "What are the benefits of online learning at Al Shorouk Academy?",
-                "online learning"
+                "online learning",
+                " hybrid"
             ],
             "responses": [
                 "Yes, Al Shorouk Academy offers online learning programs that provide students with the flexibility to study from anywhere and at any time. Our online courses are designed to deliver high-quality education through engaging and interactive content."
             ]
         },
-
         {
             "tag": "STEM Education",
-            "patterns": ["What is STEM education?", "Does Al Shorouk Academy offer STEM programs?", "STEM Education"],
+            "patterns": [
+                "What is STEM education?",
+                "Does Al Shorouk Academy offer STEM programs?",
+                "STEM Education"
+            ],
             "responses": [
                 "STEM education focuses on science, technology, engineering, and mathematics. Yes, Al Shorouk Academy offers a range of STEM programs that prepare students for careers in these fields."
             ]
         },
-
         {
             "tag": "Language Programs",
             "patterns": [
@@ -155,7 +184,6 @@
                 "Yes, Al Shorouk Academy offers a variety of language programs, including Arabic, English, French, and Spanish."
             ]
         },
-
         {
             "tag": "tuition",
             "patterns": [
@@ -168,7 +196,6 @@
                 "The tuition fee at Al Shorouk Academy varies depending on the grade level and program of study. We offer a range of financial aid options, including scholarships and discounts for siblings and early enrollment. For more information about the tuition fees and financial aid options, please visit our website or contact our admissions office."
             ]
         },
-
         {
             "tag": "extracurricular activities",
             "patterns": [
@@ -187,21 +214,51 @@
                 "What kind of facilities does Al Shorouk Academy have for students?",
                 "Can you tell me about the library at Al Shorouk Academy?",
                 "What sports facilities are available to students at Al Shorouk Academy?",
-                "facilities"
+                "facilities",
+                "Is there 24/7 access to computer labs?",
+                "What sports facilities are available?",
+                "Are there prayer rooms on campus?",
+                "Can students use the gym for free?",
+                "Where can I print my assignments?",
+                "Is there a student lounge?",
+                "Are there charging stations for laptops?",
+                "What is the capacity of the library?",
+                "Are there meeting rooms for group projects?",
+                "Is parking available for students?"
             ],
             "responses": [
                 "Al Shorouk Academy has a variety of facilities available to students, including a library, sports facilities, and student lounges. You can find more information on our website or contact our admissions office for specific details."
             ]
         },
         {
-            "tag": "career prospects",
+            "tag": "Career Services",
             "patterns": [
                 "What are the career prospects for graduates of Al Shorouk Academy?",
                 "Can you tell me about the job placement rate?",
                 "What industries do graduates typically work in?",
                 "What kind of jobs do graduates get?",
                 "How does Al Shorouk Academy prepare students for their careers?",
-                "career prospects"
+                "career prospects",
+                "What career services are available to students?",
+                "How do I schedule a career counseling appointment?",
+                "Are there any job fairs on campus?",
+                "What is the process for finding internships?",
+                "How do I build a resume?",
+                "Are there any mock interview opportunities?",
+                "What is the average starting salary for graduates?",
+                "Are there any alumni networking events?",
+                "How do I access the job board?",
+                "What is the policy on part-time jobs for students?",
+                "Are there any workshops on career development?",
+                "How do I apply for on-campus jobs?",
+                "What is the process for getting a recommendation letter?",
+                "Are there any resources for entrepreneurship?",
+                "What is the policy on internships for credit?",
+                "How do I prepare for graduate school applications?",
+                "Are there any resources for international job searches?",
+                "What is the process for getting a work visa after graduation?",
+                "Are there any mentorship programs?",
+                "What is the policy on career services for alumni?"
             ],
             "responses": [
                 "Al Shorouk Academy has a strong track record of producing successful graduates who are well-prepared for their careers. Our graduates have gone on to work in a wide range of industries, including healthcare, technology, education, and more. We offer career services and internships to help students gain practical experience and make connections in their field."
@@ -215,7 +272,9 @@
                 "Do you have any advice for studying better?",
                 "What are some study techniques that work?",
                 "How can I stay focused while studying?",
-                "study tips"
+                "study tips",
+                "What housing options are available for students?",
+                "Are there any off-campus housing recommendations?"
             ],
             "responses": [
                 "Sure, here are some study tips: make a schedule, create a study environment, take breaks, use active learning techniques, and test yourself regularly."
@@ -227,7 +286,9 @@
                 "The teacher should have uploaded materials in the class I am taking, but I cannot find any materials on the course.",
                 "I cannot find the uploaded material.",
                 "I cannot see the teacher's materials.",
-                "students material"
+                "student material",
+                "where can i find matrial",
+                "where is matrial"
             ],
             "responses": [
                 "If you cannot find the documents, please check the following points. <br> <br>  <br> 1. Make sure that you are enrolled in the course corresponding to the subject. Usually, you are registered for the course once you applied for the registration. You cannot use the documents before the registration. <br> 2. Ask the teacher in charge of the class to confirm that the availability period of the data is set correctly."
@@ -278,7 +339,9 @@
                 "I would like to disclose class slides to students .",
                 "Can we disclose lesson materials to students?"
             ],
-            "responses": ["It is possible by using (document) function."]
+            "responses": [
+                "It is possible by using (document) function."
+            ]
         },
         {
             "tag": "Resubmission after deadline",
@@ -295,6 +358,41 @@
             ]
         },
         {
+            "tag": "practical_trainings",
+            "patterns": [
+                "What practical training programs are available in this college?",
+                "How do I apply for an internship through the college?",
+                "Are practical trainings mandatory for my program?",
+                "Does the college help students find internships or co-op placements?",
+                "What companies or organizations partner with the college for internships?",
+                "How many credits is the internship/practical training worth?",
+                "What documents do I need to submit after completing my internship?",
+                "Does the college provide internship supervisors or mentors?",
+                "Are there any workshops to prepare students for internships?",
+                "Can I use my current job as a practical training requirement?",
+                "Are there summer internship programs available?",
+                "How are internship performance evaluations conducted?",
+                "Can international students participate in internships?",
+                "What are the deadlines to apply for practical training each semester?",
+                "Does the college offer virtual/remote internship opportunities?",
+                "Where can I find past internship reports or examples?",
+                "What support does the college provide for writing internship reports?",
+                "How do I find internships through the college?",
+                "Are internships paid or unpaid?",
+                "What is the process for getting internship credits?",
+                "Are there internship fairs at Al Shorouk Academy?",
+                "How many internship hours are required for my program?",
+                "Can I get help writing my internship report?",
+                "What companies partner with the academy for internships?",
+                "Is there a list of approved internship providers?",
+                "What is the deadline to secure an internship?",
+                "internships"
+            ],
+            "responses": [
+                "The career services office assists with internships. Check our website for partnerships and deadlines."
+            ]
+        },
+        {
             "tag": "Change of deadline after deadline",
             "patterns": [
                 "Can I modify the submission deadline after the final acceptance date?",
@@ -303,7 +401,9 @@
                 "I would like to change the deadline so that students can submit the task once again",
                 "Can I change the deadline after the deadline?"
             ],
-            "responses": ["It is possible by changing the deadline "]
+            "responses": [
+                "It is possible by changing the deadline "
+            ]
         },
         {
             "tag": "File submission",
@@ -445,7 +545,9 @@
                 "Please cancel the subject consolidation",
                 "Please cancel intensive courses"
             ],
-            "responses": ["If you consolidate the subjects, you cannot cancel them."]
+            "responses": [
+                "If you consolidate the subjects, you cannot cancel them."
+            ]
         },
         {
             "tag": "Displaying multiple classes",
@@ -476,7 +578,10 @@
         },
         {
             "tag": "piece of work",
-            "patterns": ["how can you help me, what are the things you can do.", "responses"],
+            "patterns": [
+                "how can you help me, what are the things you can do.",
+                "responses"
+            ],
             "responses": [
                 "I can answer to low-intermediate questions regarding college",
                 "You can ask me questions regarding college, and I will try to answer them"
@@ -484,12 +589,13 @@
         },
         {
             "tag": "How to study",
-            "patterns": ["What skills can be gained from the field of computer science"],
+            "patterns": [
+                "What skills can be gained from the field of computer science"
+            ],
             "responses": [
                 "Basic Computer Skills Emailing Processing Software Navigating Search Engines Organizing Database Applications"
             ]
         },
-
         {
             "tag": "vacation time",
             "patterns": [
@@ -504,9 +610,56 @@
                 "When are holidays",
                 "how long will the vacation"
             ],
-            "responses": ["Please refer academic calendar on our website "]
+            "responses": [
+                "Please refer academic calendar on our website "
+            ]
         },
-
+        {
+            "tag": "schedule",
+            "patterns": [
+                "What are the operating hours of the college?",
+                "When does the [Fall/Spring/Summer] semester start and end?",
+                "Where can I find the academic calendar for this year?",
+                "What are the registration deadlines for [specific semester]?",
+                "When is the add/drop period for courses?",
+                "What time do classes usually start and end each day?",
+                "Are there evening or weekend classes available for [program name]?",
+                "How can I check my class schedule online?",
+                "When are final exams scheduled for [semester]?",
+                "Does the college observe holidays? If so, which ones?",
+                "Is there a mid-semester break? When is it?",
+                "What is the schedule for [specific department] office hours?",
+                "When do summer/winter sessions begin and end?",
+                "How do I request a schedule change after registration?",
+                "Are there any mandatory orientation sessions? When are they?",
+                "What is the deadline to withdraw from a course without penalty?",
+                "When will the next semester's course schedule be published?",
+                "Can I get a copy of the bell schedule (class timings)?",
+                "Are there any scheduled maintenance days when the college is closed?",
+                "How do I find the schedule for [specific event, e.g., career fair]?"
+            ],
+            "responses": [
+                "The schedules are available on our website and at the university, including exam dates, holidays, results, and graduation project discussions."
+            ]
+        },
+        {
+            "tag": "transportation_parking",
+            "patterns": [
+                "Where can students park on campus?",
+                "How much are parking permits?",
+                "Are there bike racks available?",
+                "Does the academy offer shuttle services?",
+                "What public transportation serves the campus?",
+                "Are there carpooling options?",
+                "Where is visitor parking located?",
+                "What's the policy on overnight parking?",
+                "Are there electric vehicle charging stations?",
+                "How do I report a parking violation?"
+            ],
+            "responses": [
+                "Parking information is available from campus security."
+            ]
+        },
         {
             "tag": "Location",
             "patterns": [
@@ -525,50 +678,19 @@
                 "address",
                 "location"
             ],
-            "responses": ["Dahyet Al-Nakhil - Al-Shorouk City - Suez Road - Cairo"]
+            "responses": [
+                "Dahyet Al-Nakhil - Al-Shorouk City - Suez Road - Cairo"
+            ]
         },
         {
             "tag": "infrastructure",
-            "patterns": ["how is college infrastructure", "infrastructure", "college infrastructure"],
+            "patterns": [
+                "how is college infrastructure",
+                "infrastructure",
+                "college infrastructure"
+            ],
             "responses": [
                 "Shorouk Academy has Excellent Infrastructure. The campus is clean. Good IT Labs With Good Speed of Internet connection"
-            ]
-        },
-        {
-            "tag": "Submit replacement",
-            "patterns": [
-                "I cannot submit an assignment even after the assignment deadline has been adjusted.",
-                "The deadline for the assignment is not working",
-                "The submission was completed even after the date and time of the assignment.",
-                "Can't submit assignment",
-                "Can I submit delayed submissions more than once?"
-            ],
-            "responses": [
-                "Assignments can be submitted repeatedly until the final acceptance date. In addition, even if the deadline has been extended, if it has already been evaluated, it cannot be submitted for replacement. "
-            ]
-        },
-        {
-            "tag": "Release of intensive subjects",
-            "patterns": [
-                "I would like to cancel the consolidation of subjects.",
-                "Please restore aggregated lessons",
-                "Please remove private classes",
-                "Please cancel the subject consolidation",
-                "Please cancel intensive courses"
-            ],
-            "responses": ["If you consolidate the subjects, you cannot cancel them."]
-        },
-        {
-            "tag": "Confirmation of result",
-            "patterns": [
-                "I cannot see the assignments submitted by the students.",
-                "Can't you score the question before the deadline?",
-                "Can student's submissions to assignments not be batch downloaded until the deadline date?",
-                "I created an assignment that imposed text description and file attachment, but I cannot confirm the text content written by the student.",
-                "I cannot grade the assignment."
-            ],
-            "responses": [
-                "Students may replace their submissions until the deadline, so it is not possible to review or score submissions of assignments prior to the deadline ,  You can change the deadline settings , or use a 'Test/Questionnaire' substitute that can be checked before the deadline."
             ]
         },
         {
@@ -586,7 +708,9 @@
                 " exam dates",
                 "when is semester"
             ],
-            "responses": ["look  the academic calendar on our website,"]
+            "responses": [
+                "look  the academic calendar on our website,"
+            ]
         },
         {
             "tag": "document",
@@ -605,7 +729,9 @@
                 "what documents do I need for admission",
                 "documents needed"
             ],
-            "responses": ["To know more about the document required visit our website"]
+            "responses": [
+                "To know more about the document required visit our website"
+            ]
         },
         {
             "tag": "hours",
@@ -628,7 +754,9 @@
                 "college timing",
                 "timing college"
             ],
-            "responses": ["College is open 9 am-4 pm Sunday-Thursday!"]
+            "responses": [
+                "College is open 9 am-4 pm Sunday-Thursday!"
+            ]
         },
         {
             "tag": "number",
@@ -649,32 +777,10 @@
                 "phone no",
                 "call"
             ],
-            "responses": ["You can contact at 0226300032"]
-        },
-
-        {
-            "tag": "fees",
-            "patterns": [
-                "information about fee",
-                "information on fee",
-                "tell me the fee",
-                "college fee",
-                " fee per semester",
-                "what is the fee of each semester",
-                "what is the fees of each year",
-                "what is a fee",
-                "what are the fees",
-                "how much are the fees",
-                "fees for first year",
-                "fees",
-                "about the fees",
-                "tell me something about the fees"
-            ],
             "responses": [
-                "For Fee detail,  You can find more information on our website https://portal.sha.edu.eg/User/Students/SearchExpenses"
+                "You can contact at 0226300032"
             ]
         },
-
         {
             "tag": "library",
             "patterns": [
@@ -689,7 +795,27 @@
                 "Where is library",
                 "Library",
                 "Tell me about library",
-                "how many libraries"
+                "how many libraries",
+                "What are the library's opening hours?",
+                "How do I access online journals?",
+                "Are there any study rooms available for reservation?",
+                "What is the process for borrowing books?",
+                "Are there any late fees for overdue books?",
+                "How do I request a book from another library?",
+                "What research databases are available?",
+                "Are there any workshops on research skills?",
+                "How do I cite sources in my research paper?",
+                "Are there any special collections in the library?",
+                "What is the policy on printing and photocopying?",
+                "Are there any quiet study areas?",
+                "How do I access my library account?",
+                "Are there any resources for thesis writing?",
+                "What is the process for interlibrary loans?",
+                "Are there any digital resources for remote students?",
+                "How do I contact a librarian for help?",
+                "Are there any book clubs or reading groups?",
+                "What is the policy on food and drinks in the library?",
+                "Are there any archives or historical documents?"
             ],
             "responses": [
                 "There is a library there. The scientific library at the institute aims to provide various library services that facilitate the students’ benefit from its holdings and to provide facilities for research"
@@ -708,7 +834,9 @@
                 "what about uniform",
                 "do we have to wear the uniform"
             ],
-            "responses": ["SHA does not have a uniform "]
+            "responses": [
+                "SHA does not have a uniform "
+            ]
         },
         {
             "tag": "salutation",
@@ -726,7 +854,10 @@
                 "ok",
                 "okay"
             ],
-            "responses": ["I am glad I helped you", "welcome, anything else I can assist you with?"]
+            "responses": [
+                "I am glad I helped you",
+                "welcome, anything else I can assist you with?"
+            ]
         },
         {
             "tag": "task",
@@ -743,7 +874,6 @@
                 "You can ask me questions regarding college, and I will try to answer them"
             ]
         },
-
         {
             "tag": "Institutes",
             "patterns": [
@@ -757,7 +887,6 @@
                 " 1) Higher Institute of Engineering\n2) Higher Institute of Higher Institute of Computers and Information Technology\n3) Higher Institute of Higher Institute of Mass Communication"
             ]
         },
-
         {
             "tag": "Departments of Higher Institute of Engineering",
             "patterns": [
@@ -770,7 +899,6 @@
                 "1) Civil Engineering\n2) Power & Electrical Machines Engineering\n3) Chemical Engineering\n4) Biomedical Engineering\n5) Communication & Computer Engineering\n6) Mathematics and Engineering Physics\n7) Architectural Engineering"
             ]
         },
-
         {
             "tag": "expenses for Civil Engineering ",
             "patterns": [
@@ -778,7 +906,11 @@
                 "How much are civil engineering fees?",
                 "civil engineering fees"
             ],
-            "responses": ["Civil Engineering fees are 21300 L.E", "21300  L.E", "Fees are 21300  L.E"]
+            "responses": [
+                "Civil Engineering fees are 21300 L.E",
+                "21300  L.E",
+                "Fees are 21300  L.E"
+            ]
         },
         {
             "tag": "expenses for Power & Electrical Machines Engineering ",
@@ -787,7 +919,11 @@
                 "How much are Power & Electrical Machines Engineering fees?",
                 "Power & Electrical Machines Engineering fees"
             ],
-            "responses": ["Civil Engineering fees are 25000 L.E", "25000 L.E", "Fees are 25000 L.E"]
+            "responses": [
+                "Civil Engineering fees are 25000 L.E",
+                "25000 L.E",
+                "Fees are 25000 L.E"
+            ]
         },
         {
             "tag": "expenses for Chemical Engineering ",
@@ -796,7 +932,11 @@
                 "How much are Chemical Engineering fees?",
                 "Chemical Engineering fees"
             ],
-            "responses": ["Civil Engineering fees are 22860 L.E", "22860 L.E", "Fees are 22860 L.E"]
+            "responses": [
+                "Civil Engineering fees are 22860 L.E",
+                "22860 L.E",
+                "Fees are 22860 L.E"
+            ]
         },
         {
             "tag": "expenses for Biomedical Engineering ",
@@ -805,7 +945,11 @@
                 "How much are Biomedical Engineering fees?",
                 "Biomedical Engineering fees"
             ],
-            "responses": ["Civil Engineering fees are 23000 L.E", "23000 L.E", "Fees are 23000 L.E"]
+            "responses": [
+                "Civil Engineering fees are 23000 L.E",
+                "23000 L.E",
+                "Fees are 23000 L.E"
+            ]
         },
         {
             "tag": "expenses for Communication & Computer Engineering ",
@@ -814,7 +958,11 @@
                 "How much are Communication & Computer Engineering fees?",
                 "Communication & Computer Engineering fees"
             ],
-            "responses": ["Civil Engineering fees are 25500 L.E", "25500 L.E", "Fees are 25500 L.E"]
+            "responses": [
+                "Civil Engineering fees are 25500 L.E",
+                "25500 L.E",
+                "Fees are 25500 L.E"
+            ]
         },
         {
             "tag": "expenses for Mathematics and Engineering Physics ",
@@ -823,7 +971,11 @@
                 "How much are Mathematics and Engineering Physics fees?",
                 "Mathematics and Engineering Physics fees"
             ],
-            "responses": ["Civil Engineering fees are 20000 L.E", "20000 L.E", "Fees are 20000 L.E"]
+            "responses": [
+                "Civil Engineering fees are 20000 L.E",
+                "20000 L.E",
+                "Fees are 20000 L.E"
+            ]
         },
         {
             "tag": "expenses for Architectural Engineering ",
@@ -832,9 +984,12 @@
                 "How much are Architectural Engineering fees?",
                 "Architectural Engineering fees"
             ],
-            "responses": ["Civil Engineering fees are 24050 L.E", "24050 L.E", "Fees are 24050 L.E"]
+            "responses": [
+                "Civil Engineering fees are 24050 L.E",
+                "24050 L.E",
+                "Fees are 24050 L.E"
+            ]
         },
-
         {
             "tag": "expenses for Computer Science",
             "patterns": [
@@ -842,9 +997,12 @@
                 "How much are Computer Science fees?",
                 "Computer Science fees"
             ],
-            "responses": ["Computer Science fees are 14680 L.E", "14680 L.E", "Fees are 14680 L.E"]
+            "responses": [
+                "Computer Science fees are 14680 L.E",
+                "14680 L.E",
+                "Fees are 14680 L.E"
+            ]
         },
-
         {
             "tag": "expenses for Management Information Systems",
             "patterns": [
@@ -852,9 +1010,12 @@
                 "How much are Management Information Systems fees?",
                 "Management Information Systems fees"
             ],
-            "responses": ["Management Information Systems fees are 11350 L.E", "11350 L.E", "Fees are 11350 L.E"]
+            "responses": [
+                "Management Information Systems fees are 11350 L.E",
+                "11350 L.E",
+                "Fees are 11350 L.E"
+            ]
         },
-
         {
             "tag": "expenses for Business Administration & Accounting",
             "patterns": [
@@ -862,21 +1023,23 @@
                 "How much are Business Administration & Accounting fees?",
                 "Business Administration & Accounting fees"
             ],
-            "responses": ["Business Administration & Accounting fees are 9720 L.E", "9720 L.E", "Fees are 9720 L.E"]
+            "responses": [
+                "Business Administration & Accounting fees are 9720 L.E",
+                "9720 L.E",
+                "Fees are 9720 L.E"
+            ]
         },
-
         {
             "tag": "Departments of Higher Institute of Mass Communication",
             "patterns": [
                 "What are the departments of Higher Institute of Mass Communication?",
                 "How many departments in Higher Institute of Mass Communication?",
-                "Departments in Higher Institute of Mass Communication."
+                "Departments in Higher Institute of Mass Communication"
             ],
             "responses": [
                 "Higher Institute of Computers and Information Technology divide into 3 Department:\n1) Journalism\n2) Radio and television\n3) Public relations and media"
             ]
         },
-
         {
             "tag": "expenses for Mass Communication",
             "patterns": [
@@ -884,7 +1047,70 @@
                 "How much are Mass Communication fees?",
                 "Mass Communication fees"
             ],
-            "responses": ["Mass Communication fees are 21000 L.E", "21000 L.E", "Fees are 21000 L.E"]
+            "responses": [
+                "Mass Communication fees are 25000 L.E",
+                "25000 L.E",
+                "Fees are 25000 L.E"
+            ]
+        },
+        {
+            "tag": "student_support",
+            "patterns": [
+                "Is there tutoring for math courses?",
+                "How do I request disability accommodations?",
+                "Are there counseling services for stress?",
+                "Where can I get career advice?",
+                "Is there a writing center for assignments?",
+                "How do I join a study group?",
+                "Are there mentors for freshman students?",
+                "Can I get help with resume writing?",
+                "Where’s the IT help desk located?",
+                "How do I report a campus issue?"
+            ],
+            "responses": [
+                "We offer academic, mental health, and career support. Contact student services for assistance."
+            ]
+        },
+        {
+            "tag": "technology",
+            "patterns": [
+                "How do I access the student portal?",
+                "What software is provided for free?",
+                "Is there Wi-Fi coverage across campus?",
+                "How do I reset my portal password?",
+                "Are there discounts on laptops for students?",
+                "Can I borrow equipment like projectors?",
+                "Where do I report IT issues?",
+                "Are coding workshops available?",
+                "How do I use the online library database?",
+                "Is there a tech support hotline?"
+            ],
+            "responses": [
+                "IT services provide support for portal access, software, and equipment. Visit the IT office for help."
+            ]
+            
+        },
+        {
+            "tag": "inappropriate_language",
+            "patterns": [
+                "fuck you",
+                "go to hell",
+                "screw you",
+                "you suck",
+                "idiot",
+                "dumb bot",
+                "stupid",
+                "you are useless",
+                "what a dumb assistant",
+                "i hate you"
+            ],
+            "responses": [
+                "Let's keep the conversation respectful. I'm here to help 😊",
+                "I understand you're upset. Let me know how I can assist you.",
+                "Please avoid using inappropriate language.",
+                "I'm programmed to assist you—let’s keep things positive!"
+            ]
         }
+        
     ]
 }

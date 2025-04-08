@@ -50,6 +50,8 @@ bot_name = "Sam"
 
 # Function to get a response based on the user's message
 def get_response(msg):
+    threshold = 0.72  # تقدر تغيرها حسب تجربتك
+
     sentence = tokenize(msg)
     X = bag_of_words(sentence, all_words)
     X = X.reshape(1, X.shape[0])
@@ -58,14 +60,23 @@ def get_response(msg):
     output = model(X)
     _, predicted = torch.max(output, dim=1)
     tag = tags[predicted.item()]
-
     probs = torch.softmax(output, dim=1)
     prob = probs[0][predicted.item()]
 
-    if prob.item() > 0.75:
+    # طباعة معلومات التنقيح
+    print(f"Tag Detected: {tag}, Confidence: {prob.item():.2f}")
+
+    if prob.item() > threshold:
         for intent in intents['intents']:
             if tag == intent["tag"]:
-                return random.choice(intent['responses'])
+                valid_responses = [
+                    resp for resp in intent['responses']
+                    if "[insert" not in resp and "http" not in resp and resp.strip() != ""
+                ]
+                if valid_responses:
+                    return random.choice(valid_responses)
+                else:
+                    return "I found the topic you're asking about, but I don't have a detailed answer at the moment."
 
     return "I'm not sure what you mean. Can you rephrase?"
 

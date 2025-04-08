@@ -30,7 +30,7 @@ class Chatbox {
         this.recognition.lang = 'en-US'; // تحديد اللغة (اختياري)
         this.recognition.continuous = true; // استمرار التسجيل
         this.recognition.interimResults = true; // الحصول على النتائج مؤقتة أثناء التسجيل
-
+        
         // إضافة EventListener للميكروفون
         this.args.microphoneButton.addEventListener("click", () => this.toggleVoiceRecognition());
         // إضافة EventListener لزر الكتابة
