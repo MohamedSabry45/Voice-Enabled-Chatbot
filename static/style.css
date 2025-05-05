@@ -20,13 +20,112 @@ html {
     --primary: #0c7dbe;
 }
 
-.chatbox {
-    position: fixed;
-    bottom: 30px;
-    left: 50%;
-    transform: translateX(-50%);
+body {
+    background-color: rgb(1, 1, 39);
+    margin: 0;
+    height: 100vh;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Arial', sans-serif;
 }
 
+/* نص الأكاديمية - نسخة Didot الأنقى */
+body::after {
+    content: "AI SHOROUK ACADEMY";
+    position: absolute;
+    color: rgba(230, 240, 255, 0.35); /* لون أبيض مزرق شفاف */
+    font-size: 4.5rem;
+    font-weight: 400;
+    font-family: 'Didot', 'Bodoni MT', serif; /* خط Didot الكلاسيكي */
+    text-align: center;
+    z-index: 1;
+    letter-spacing: 4px;
+    width: 100%;
+    text-transform: uppercase;
+    text-shadow: 
+        0 0 8px rgba(200, 220, 255, 0.25),
+        0 0 2px rgba(255, 255, 255, 0.3); /* ظل مزدوج ناعم */
+    pointer-events: none;
+    animation: elegantFade 7s infinite ease-in-out;
+    font-style: italic; /* إمالة أنيقة */
+}
+
+@keyframes elegantFade {
+    0%, 100% { opacity: 0.3; }
+    50% { opacity: 0.45; }
+}
+
+/* تحسينات للجوال */
+@media (max-width: 768px) {
+    body::after {
+        font-size: 2.3rem;
+        letter-spacing: 2px;
+        opacity: 0.4 !important;
+    }
+}
+/* باقي الكود يبقى كما هو بدون أي تغيير */
+
+/* طبقة الأشكال الكثيفة */
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        /* 20 نقطة بيضاء */
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4'%3E%3Ccircle cx='2' cy='2' r='1' fill='rgba(255,255,255,0.25)'/%3E%3C/svg%3E") 5% 10% no-repeat,
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4'%3E%3Ccircle cx='2' cy='2' r='1' fill='rgba(255,255,255,0.25)'/%3E%3C/svg%3E") 12% 65% no-repeat,
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4'%3E%3Ccircle cx='2' cy='2' r='1' fill='rgba(255,255,255,0.25)'/%3E%3C/svg%3E") 18% 30% no-repeat,
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4'%3E%3Ccircle cx='2' cy='2' r='1' fill='rgba(255,255,255,0.25)'/%3E%3C/svg%3E") 25% 80% no-repeat,
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4'%3E%3Ccircle cx='2' cy='2' r='1' fill='rgba(255,255,255,0.25)'/%3E%3C/svg%3E") 32% 45% no-repeat,
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4'%3E%3Ccircle cx='2' cy='2' r='1' fill='rgba(255,255,255,0.25)'/%3E%3C/svg%3E") 40% 15% no-repeat,
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4'%3E%3Ccircle cx='2' cy='2' r='1' fill='rgba(255,255,255,0.25)'/%3E%3C/svg%3E") 48% 70% no-repeat,
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4'%3E%3Ccircle cx='2' cy='2' r='1' fill='rgba(255,255,255,0.25)'/%3E%3C/svg%3E") 55% 25% no-repeat,
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4'%3E%3Ccircle cx='2' cy='2' r='1' fill='rgba(255,255,255,0.25)'/%3E%3C/svg%3E") 62% 85% no-repeat,
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4'%3E%3Ccircle cx='2' cy='2' r='1' fill='rgba(255,255,255,0.25)'/%3E%3C/svg%3E") 70% 50% no-repeat,
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4'%3E%3Ccircle cx='2' cy='2' r='1' fill='rgba(255,255,255,0.25)'/%3E%3C/svg%3E") 78% 20% no-repeat,
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4'%3E%3Ccircle cx='2' cy='2' r='1' fill='rgba(255,255,255,0.25)'/%3E%3C/svg%3E") 85% 75% no-repeat,
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='4' height='4'%3E%3Ccircle cx='2' cy='2' r='1' fill='rgba(255,255,255,0.25)'/%3E%3C/svg%3E") 92% 35% no-repeat,
+        
+        /* 20 نجمة زرقاء */
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M4 0L5 3H8L6 5L7 8L4 6L1 8L2 5L0 3H3L4 0Z' fill='rgba(100,210,255,0.35)'/%3E%3C/svg%3E") 7% 25% no-repeat,
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M4 0L5 3H8L6 5L7 8L4 6L1 8L2 5L0 3H3L4 0Z' fill='rgba(100,210,255,0.35)'/%3E%3C/svg%3E") 15% 60% no-repeat,
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M4 0L5 3H8L6 5L7 8L4 6L1 8L2 5L0 3H3L4 0Z' fill='rgba(100,210,255,0.35)'/%3E%3C/svg%3E") 22% 85% no-repeat,
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M4 0L5 3H8L6 5L7 8L4 6L1 8L2 5L0 3H3L4 0Z' fill='rgba(100,210,255,0.35)'/%3E%3C/svg%3E") 30% 40% no-repeat,
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M4 0L5 3H8L6 5L7 8L4 6L1 8L2 5L0 3H3L4 0Z' fill='rgba(100,210,255,0.35)'/%3E%3C/svg%3E") 38% 15% no-repeat,
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M4 0L5 3H8L6 5L7 8L4 6L1 8L2 5L0 3H3L4 0Z' fill='rgba(100,210,255,0.35)'/%3E%3C/svg%3E") 45% 70% no-repeat,
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M4 0L5 3H8L6 5L7 8L4 6L1 8L2 5L0 3H3L4 0Z' fill='rgba(100,210,255,0.35)'/%3E%3C/svg%3E") 53% 30% no-repeat,
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M4 0L5 3H8L6 5L7 8L4 6L1 8L2 5L0 3H3L4 0Z' fill='rgba(100,210,255,0.35)'/%3E%3C/svg%3E") 60% 55% no-repeat,
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M4 0L5 3H8L6 5L7 8L4 6L1 8L2 5L0 3H3L4 0Z' fill='rgba(100,210,255,0.35)'/%3E%3C/svg%3E") 68% 80% no-repeat,
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M4 0L5 3H8L6 5L7 8L4 6L1 8L2 5L0 3H3L4 0Z' fill='rgba(100,210,255,0.35)'/%3E%3C/svg%3E") 75% 20% no-repeat,
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M4 0L5 3H8L6 5L7 8L4 6L1 8L2 5L0 3H3L4 0Z' fill='rgba(100,210,255,0.35)'/%3E%3C/svg%3E") 83% 65% no-repeat,
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M4 0L5 3H8L6 5L7 8L4 6L1 8L2 5L0 3H3L4 0Z' fill='rgba(100,210,255,0.35)'/%3E%3C/svg%3E") 90% 45% no-repeat,
+        
+        /* 10 خطوط مائلة */
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12'%3E%3Cline x1='0' y1='12' x2='12' y2='0' stroke='rgba(0,200,255,0.2)' stroke-width='0.6'/%3E%3C/svg%3E") 10% 50% no-repeat,
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12'%3E%3Cline x1='0' y1='12' x2='12' y2='0' stroke='rgba(0,200,255,0.2)' stroke-width='0.6'/%3E%3C/svg%3E") 20% 20% no-repeat,
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12'%3E%3Cline x1='0' y1='12' x2='12' y2='0' stroke='rgba(0,200,255,0.2)' stroke-width='0.6'/%3E%3C/svg%3E") 35% 75% no-repeat,
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12'%3E%3Cline x1='0' y1='12' x2='12' y2='0' stroke='rgba(0,200,255,0.2)' stroke-width='0.6'/%3E%3C/svg%3E") 50% 30% no-repeat,
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12'%3E%3Cline x1='0' y1='12' x2='12' y2='0' stroke='rgba(0,200,255,0.2)' stroke-width='0.6'/%3E%3C/svg%3E") 65% 60% no-repeat,
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12'%3E%3Cline x1='0' y1='12' x2='12' y2='0' stroke='rgba(0,200,255,0.2)' stroke-width='0.6'/%3E%3C/svg%3E") 80% 10% no-repeat,
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12'%3E%3Cline x1='0' y1='12' x2='12' y2='0' stroke='rgba(0,200,255,0.2)' stroke-width='0.6'/%3E%3C/svg%3E") 95% 80% no-repeat;
+        
+    opacity: .9;
+}
+
+.chatbox {
+    position: fixed;
+    right: 20px;     /* تحديد المسافة من الحافة اليمنى */
+    bottom: 20px;    /* تحديد المسافة من الحافة السفلية */
+    left: auto;      /* إلغاء المحاذاة الوسطى */
+    transform: none; /* إلغاء التحويل الأصلي */
+    z-index: 1000;  
+}
 .chatbox__support {
     display: flex;
     flex-direction: column;
@@ -194,7 +293,7 @@ html {
 
 .chatbox__button button {
     padding: 10px;
-    background: white;
+    background: rgb(27, 121, 119);
     border: none;
     outline: none;
     border-top-left-radius: 50px;

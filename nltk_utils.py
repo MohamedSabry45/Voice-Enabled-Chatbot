@@ -1,8 +1,12 @@
 import numpy as np
 import nltk
-# nltk.download('punkt')
 from nltk.stem.porter import PorterStemmer
+from difflib import get_close_matches
+
 stemmer = PorterStemmer()
+
+def tokenize(sentence):
+    return nltk.word_tokenize(sentence)
 
 
 def tokenize(sentence):

@@ -117,10 +117,13 @@
             padding: 8px 15px;
             color: #333;
             text-decoration: none;
+            transition: all 0.3s ease;
         }
 
         .agent-dropdown-item:hover {
             background: #f5f5f5;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
         .agent-dropdown-item i:first-child {
@@ -134,6 +137,85 @@
         .toggle-icon.off {
             color: #dc3545;
         }
+
+        /* إضافة تأثيرات التلميحات للـ Agent */
+        .agent-dropdown-item[data-tooltip]:hover::after {
+            content: attr(data-tooltip);
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #333;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 12px;
+            white-space: nowrap;
+            margin-bottom: 5px;
+        }
+
+        /* إضافة تأثيرات جديدة للـ Text و Voice */
+        .dropdown-item.text-btn, 
+        .dropdown-item.microphone-btn {
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .dropdown-item.text-btn:hover, 
+        .dropdown-item.microphone-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: #f8f9fa;
+        }
+
+        .dropdown-item.text-btn:hover::after, 
+        .dropdown-item.microphone-btn:hover::after {
+            content: attr(data-tooltip);
+            position: absolute;
+            bottom: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #333;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 12px;
+            white-space: nowrap;
+            margin-bottom: 5px;
+        }
+
+        /* Enhanced tooltips for all interactive elements */
+        .settings-btn:hover .tooltip,
+        .agent-btn:hover .tooltip,
+        .back-btn:hover .tooltip,
+        .stop-btn:hover .tooltip {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        /* Style for the back button tooltip */
+        .back-btn {
+            position: relative;
+        }
+
+        .back-btn .tooltip {
+            left: 100%;
+            bottom: 50%;
+            transform: translateY(50%);
+            margin-left: 5px;
+        }
+
+        /* Style for the stop button tooltip */
+        .stop-btn {
+            position: relative;
+        }
+
+        .stop-btn .tooltip {
+            left: 50%;
+            bottom: 100%;
+            transform: translateX(-50%);
+            margin-bottom: 5px;
+        }
     </style>
 </head>
 
@@ -142,7 +224,9 @@
         <div class="chatbox">
             <div class="chatbox__support">
                 <div class="chatbox__header">
-                    <i class="fas fa-arrow-left back-btn" id="backBtn"></i>
+                    <i class="fas fa-arrow-left back-btn" id="backBtn">
+                        <span class="tooltip">Return to voice/text selection</span>
+                    </i>
                     <div class="chatbox__image--header">
                         <img src="https://img.icons8.com/color/48/000000/circled-user-female-skin-type-5--v1.png"
                             alt="image">
@@ -163,37 +247,41 @@
                         <div class="settings-btn" id="dropdownMenuButton" data-bs-toggle="dropdown"
                             aria-expanded="false">
                             <i class="fas fa-cog" style="color: #0a0a0a;"></i>
-                            <span class="tooltip">Settings</span>
+                            <span class="tooltip">User settings - Configure your input method</span>
                         </div>
                         <div class="dropdown">
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item text-btn" href="#">
+                                <a class="dropdown-item text-btn" href="#" data-tooltip="Switch to text input - Type your messages">
                                     <i class="fas fa-keyboard"></i> Text
                                 </a>
-                                <a class="dropdown-item microphone-btn" href="#">
+                                <a class="dropdown-item microphone-btn" href="#" data-tooltip="Switch to voice input - Speak your messages">
                                     <i class="fas fa-microphone"></i> Voice
                                 </a>
                             </div>
                         </div>
-                        <i class="fas fa-stop-circle stop-btn"></i>
-                        <span class="recording">Recording Now...</span>
+                        <i class="fas fa-stop-circle stop-btn">
+                            <span class="tooltip">Stop recording</span>
+                        </i>
+                        
+                        <span class="recording">Recording </span>
                     </div>
 
-                    <!-- إضافة dropdown الـ Agent -->
+                    <!-- Agent response mode dropdown -->
                     <div class="agent-dropdown">
                         <div class="agent-btn" id="agentDropdownButton">
                             <i class="fas fa-user-secret"></i>
+                            <span class="tooltip">Agent settings - Configure how the bot responds</span>
                         </div>
                         <div class="agent-dropdown-menu" id="agentDropdownMenu">
-                            <a href="#" class="agent-dropdown-item agent-text-mode">
+                            <a href="#" class="agent-dropdown-item agent-text-mode" data-tooltip="Bot will respond with text messages only">
                                 <i class="fas fa-keyboard"></i>
-                                <span>Text</span>
-                                <i class="fas fa-toggle-on toggle-icon agent-text-toggle"></i>
+                                <span>Text </span>
+                                <i class="fas fa-toggle-off toggle-icon agent-text-toggle off"></i>
                             </a>
-                            <a href="#" class="agent-dropdown-item agent-voice-mode">
+                            <a href="#" class="agent-dropdown-item agent-voice-mode" data-tooltip="Bot will respond with voice (text-to-speech)">
                                 <i class="fas fa-microphone"></i>
-                                <span>Voice</span>
-                                <i class="fas fa-toggle-off toggle-icon agent-voice-toggle"></i>
+                                <span>Voice </span>
+                                <i class="fas fa-toggle-on toggle-icon agent-voice-toggle"></i>
                             </a>
                         </div>
                     </div>
@@ -237,34 +325,37 @@
         });
 
         agentTextMode.addEventListener('click', (e) => {
-    e.preventDefault();
-    if (agentCurrentMode !== 'text') {
-        agentCurrentMode = 'text';
-        // Update UI toggles
-        agentTextToggle.classList.remove('fa-toggle-off', 'off');
-        agentTextToggle.classList.add('fa-toggle-on');
-        agentVoiceToggle.classList.remove('fa-toggle-on');
-        agentVoiceToggle.classList.add('fa-toggle-off', 'off');
-        
-        // Enforce Text Mode (disables voice)
-        chatbox.setResponseMode('text');
-    }
-});
+            e.preventDefault();
+            if (agentCurrentMode !== 'text') {
+                agentCurrentMode = 'text';
+                // Update UI toggles
+                agentTextToggle.classList.remove('fa-toggle-off', 'off');
+                agentTextToggle.classList.add('fa-toggle-on');
+                agentVoiceToggle.classList.remove('fa-toggle-on');
+                agentVoiceToggle.classList.add('fa-toggle-off', 'off');
+                
+                // Enforce Text Mode (disables voice)
+                chatbox.setResponseMode('text');
+                console.log("Bot response mode set to: Text");
+            }
+        });
 
-agentVoiceMode.addEventListener('click', (e) => {
-    e.preventDefault();
-    if (agentCurrentMode !== 'voice') {
-        agentCurrentMode = 'voice';
-        // Update UI toggles
-        agentVoiceToggle.classList.remove('fa-toggle-off', 'off');
-        agentVoiceToggle.classList.add('fa-toggle-on');
-        agentTextToggle.classList.remove('fa-toggle-on');
-        agentTextToggle.classList.add('fa-toggle-off', 'off');
-        
-        // Enforce Voice Mode
-        chatbox.setResponseMode('voice');
-    }
-});
+        agentVoiceMode.addEventListener('click', (e) => {
+            e.preventDefault();
+            if (agentCurrentMode !== 'voice') {
+                agentCurrentMode = 'voice';
+                // Update UI toggles
+                agentVoiceToggle.classList.remove('fa-toggle-off', 'off');
+                agentVoiceToggle.classList.add('fa-toggle-on');
+                agentTextToggle.classList.remove('fa-toggle-on');
+                agentTextToggle.classList.add('fa-toggle-off', 'off');
+                
+                // Enforce Voice Mode
+                chatbox.setResponseMode('voice');
+                console.log("Bot response mode set to: Voice");
+            }
+        });
+
         // بقية الجافاسكريبت الأصلي
         textBtn?.addEventListener('click', () => {
             messageInput.style.display = 'block';
@@ -295,18 +386,49 @@ agentVoiceMode.addEventListener('click', (e) => {
 
         function sendMessage() {
             const message = messageInput.value.trim();
+            const responseMode = chatbox.getResponseMode();  // Get the current mode: 'text' or 'voice'
+
             if (message) {
                 console.log("Message sent: " + message);
                 messageInput.value = "";
                 stopBtn.style.display = 'none';
                 microphoneBtn.style.display = 'inline-block';
                 recordingText.style.display = 'none';
+
+                fetch("/predict", {
+                    method: "POST",
+                    body: JSON.stringify({
+                        message: message,
+                        isVoiceMode: responseMode === 'voice'  // Send true if voice mode, false if text mode
+                    }),
+                    headers: {
+                        "Content-Type": "application/json"
+                    }
+                })
+                .then(res => res.json())
+                .then(data => {
+                    const botResponse = data.answer;
+                    console.log("Bot says:", botResponse);
+                    
+                    // Handle response based on mode
+                    if (responseMode === 'voice') {
+                        // Speak the response
+                        const speech = new SpeechSynthesisUtterance();
+                        speech.text = botResponse;
+                        speech.lang = "en-US";
+                        window.speechSynthesis.speak(speech);
+                    } else {
+                        // Display text response
+                        // You can append the botResponse to your chat UI here
+                    }
+                })
+                .catch(err => console.error("Error:", err));
             }
         }
 
         function startSpeechRecognition() {
             recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
-            recognition.lang = "ar-SA";
+            recognition.lang = "en-US"; // تغيير لغة التعرف إلى الإنجليزية
             recognition.start();
 
             recognition.onstart = function () {

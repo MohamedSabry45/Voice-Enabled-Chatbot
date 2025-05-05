@@ -1,212 +1,232 @@
 class Chatbox {
     constructor() {
         this.args = {
-            
             openButton: document.querySelector(".chatbox__button"),
             chatBox: document.querySelector(".chatbox__support"),
             sendButton: document.querySelector(".send__button"),
-            textButton: document.querySelector(".send__button .text-btn"), // أيقونة الكتابة
-            microphoneButton: document.querySelector(".send__button .microphone-btn"), // أيقونة الميكروفون
-            inputField: document.querySelector(".chatbox__footer input"), // حقل النص
-            recordText: document.querySelector(".send__button span"), // النص الذي يعرض عند التسجيل
+            textButton: document.querySelector(".send__button .text-btn"),
+            microphoneButton: document.querySelector(".send__button .microphone-btn"),
+            inputField: document.querySelector(".chatbox__footer input"),
+            recordText: document.querySelector(".send__button span"),
         };
-        
-
-        this.state = false;
+ 
+        this.state = false; 
         this.messages = [];
-        this.isVoiceMode = false; // تحديد وضع الصوت
-        this.isRecording = false; // إضافة متغير لتحديد ما إذا كان الميكروفون يعمل أو لا
-        
+        this.isVoiceMode = false;
+        this.isRecording = false;
+        this.agentResponseMode = 'voice';
+        this.isSending = false;
+        this.isSpeaking = false; // إضافة متغير لتتبع حالة التحدث
 
-        // التحقق من دعم SpeechRecognition
+        this.initSpeechRecognition();
+        this.setupEventListeners();
+    }
+
+    initSpeechRecognition() {
         const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-        if (!SpeechRecognition) {
-            alert("Voice recognition is not supported in your browser.");
-            return; // الخروج إذا لم يكن التعرف على الصوت مدعومًا
+        if (SpeechRecognition) {
+            this.recognition = new SpeechRecognition();
+            this.recognition.lang = 'en-US'; //this.recognition.continuous = true;
+            this.recognition.interimResults = true;
+            this.setupRecognitionCallbacks();
         }
-        
+    }
+    setupRecognitionCallbacks() {
+        this.recognition.onstart = () => {
+            this.isRecording = true;
+            this.args.microphoneButton.classList.add('active');
+            this.args.recordText.textContent = 'Recording...';
+        };
 
-        this.recognition = new SpeechRecognition();
-        this.recognition.lang = 'en-US'; // تحديد اللغة (اختياري)
-        this.recognition.continuous = true; // استمرار التسجيل
-        this.recognition.interimResults = true; // الحصول على النتائج مؤقتة أثناء التسجيل
-        
-        // إضافة EventListener للميكروفون
-        this.args.microphoneButton.addEventListener("click", () => this.toggleVoiceRecognition());
-        // إضافة EventListener لزر الكتابة
-        this.args.textButton.addEventListener("click", () => {
+        this.recognition.onend = () => {
+            this.isRecording = false;
+            if (this.isVoiceMode) this.recognition.start();
+        };
+
+        this.recognition.onresult = (event) => {
+            const transcript = event.results[event.resultIndex][0].transcript;
+            this.args.inputField.value = transcript;
+        };
+
+        this.recognition.onerror = (event) => {
+            console.error('Recognition error:', event.error);
             this.switchToTextMode();
-        
-            // Show the plane icon
-            const planeIcon = document.querySelector('.sendIcon');
-            planeIcon.classList.remove('d-none');
-        
-            // Hide the settings button
-            const settingsBtn = document.querySelector('.settings-btn');
-            settingsBtn.classList.add('d-none');
-        });
-        
+        };
+    }
 
-        // إضافة EventListener للضغط على Enter
-        this.args.inputField.addEventListener("keyup", (event) => {
-            if (event.key === "Enter") {
-                this.onSendButton(this.args.chatBox);
-            }
-        });
+    setupEventListeners() {
+        this.args.microphoneButton?.addEventListener("click", () => this.toggleVoiceRecognition());
+        this.args.textButton?.addEventListener("click", () => this.switchToTextMode());
+        this.args.inputField?.addEventListener("keyup", (e) => e.key === "Enter" && this.onSendButton());
+        this.args.openButton?.addEventListener("click", () => this.toggleState());
+        this.args.sendButton?.addEventListener("click", () => this.onSendButton());
+    }
+    
+    setResponseMode(mode) {
+        this.agentResponseMode = mode;
+    }
+
+    getResponseMode() {
+        return this.agentResponseMode;
     }
 
     display() {
-        const { openButton, chatBox, sendButton } = this.args;
-
-        openButton.addEventListener("click", () => this.toggleState(chatBox));
-        sendButton.addEventListener("click", () => this.onSendButton(chatBox));
-
-        const node = chatBox.querySelector("input");
-        node.addEventListener("keyup", ({ key }) => {
-            if (key === "Enter") {
-                this.onSendButton(chatbox);
-            }
-        });
+        // Initial display setup
     }
 
-    toggleState(chatbox) {
+    toggleState() {
         this.state = !this.state;
-
-        // show or hides the box
-        if (this.state) {
-            chatbox.classList.add("chatbox--active");
-        } else {
-            chatbox.classList.remove("chatbox--active");
-        }
+        this.args.chatBox.classList.toggle("chatbox--active", this.state);
     }
 
-    onSendButton(chatbox) {
-        var textField = chatbox.querySelector("input");
-        let text1 = textField.value;
-        if (text1 === "") {
+    async onSendButton() {
+        if (this.isSending || this.isSpeaking) return;
+        this.isSending = true;
+    
+        const message = this.args.inputField.value.trim();
+        if (!message) {
+            this.isSending = false;
             return;
         }
- 
-        // إذا كان التسجيل الصوتي مفعلاً، توقفه
-        if (this.isVoiceMode) {
-            this.recognition.stop();
-            this.isVoiceMode = false;
-            this.args.microphoneButton.classList.remove('active');
-            this.args.recordText.textContent = 'Record Now'; // إعادة النص إلى "Record Now"
-        }
-
-        let msg1 = { name: "User", message: text1 };
-        this.messages.push(msg1);
-
-        fetch("http://127.0.0.1:5000/predict", {
-            method: "POST",
-            body: JSON.stringify({ message: text1 }),
-            mode: "cors",
-            headers: {
-                "Content-Type": "application/json",
-            },
-        })
-            .then((r) => r.json())
-            .then((r) => {
-                // Stop any ongoing voice output
-                window.speechSynthesis.cancel();
-        
-                let msg2 = { name: "Sam", message: r.answer };
-                this.messages.push(msg2);
-                this.updateChatText(chatbox);
-                textField.value = "";
-        
-                // Show the microphone button again
-                this.args.microphoneButton.style.display = 'inline-block';
-                this.args.recordText.textContent = 'Record Now'; // Reset record text
-        
-                // Optional: Speak the response (if needed)
-                speakText(r.answer);
-            })
-            .catch((error) => {
-                console.error("Error:", error);
-                this.updateChatText(chatbox);
-                textField.value = "";
-            });
-        
-    }
     
-
-    updateChatText(chatbox) {
-        var html = "";
-        this.messages
-            .slice()
-            .reverse()
-            .forEach(function (item, index) {
-                if (item.name === "Sam") {
-                    html += '<div class="messages__item messages__item--visitor">' + item.message + "</div>";
-                } else {
-                    html += '<div class="messages__item messages__item--operator">' + item.message + "</div>";
+        this.args.inputField.value = "";
+        this.addMessage('User', message, true);
+    
+        try {
+            const response = await this.sendMessageToServer(message);
+            if (response?.answer === "__CLEAR__") {
+                // مسح المحادثة من الواجهة
+                const chatMessages = this.args.chatBox.querySelector(".chatbox__messages");
+                chatMessages.innerHTML = '<div></div>';
+                this.messages = [];
+            } else if (response?.answer) {
+                this.addMessage('Sam', response.answer, false);
+                if (this.agentResponseMode === 'voice') {
+                    await this.speakText(response.answer);
                 }
-            });
+            }
+        } catch (error) {
+            console.error("Error:", error);
+        } finally {
+            this.isSending = false;
+        }
+    }
+    addMessage(sender, message, isUser) {
+        const chatmessage = this.args.chatBox.querySelector(".chatbox__messages");
+        const messageDiv = document.createElement('div');
+        
+        messageDiv.classList.add('messages__item');
+        messageDiv.classList.add(isUser ? 'messages__item--user' : 'messages__item--bot');
+        messageDiv.textContent = message;
+        
+        chatmessage.appendChild(messageDiv);
+        chatmessage.scrollTop = chatmessage.scrollHeight;
+        
+        this.messages.push({ name: sender, message: message, isUser: isUser });
+    }
 
-        const chatmessage = chatbox.querySelector(".chatbox__messages");
-        chatmessage.innerHTML = html;
+    async sendMessageToServer(message) {
+        const response = await fetch("/predict", {
+            method: "POST",
+            body: JSON.stringify({ 
+                message: message,
+                agentResponseMode: this.agentResponseMode
+            }),
+            headers: {
+                "Content-Type": "application/json"
+            }
+        });
+        if (!response.ok) throw new Error('Network error');
+        return await response.json();
     }
 
     toggleVoiceRecognition() {
         if (this.isVoiceMode) {
-            this.switchToTextMode(); // العودة لوضع النص
+            this.switchToTextMode();
         } else {
-            if (this.recognition && !this.isRecording) { // التأكد من عدم التسجيل إذا كان الميكروفون في حالة تسجيل
-                try {
-                    this.recognition.start(); // بدء التسجيل
-                    this.isRecording = true; // تعيين حالة التسجيل
-                    this.args.microphoneButton.classList.add('active');
-                    this.args.recordText.textContent = 'Recording...'; // عرض نص "Recording..." أثناء التسجيل
-                    this.isVoiceMode = true; // تفعيل وضع الصوت
-                } catch (error) {
-                    console.error('Error starting recognition:', error);
-                    // لا تعرض رسالة الخطأ الآن
-                    alert('There was an issue starting voice recognition.');
-                }
-            }
+            this.startVoiceRecognition();
         }
     }
 
-    // التبديل لوضع الكتابة
+    startVoiceRecognition() {
+        if (this.recognition && !this.isRecording) {
+            this.recognition.start();
+            this.isVoiceMode = true;
+        }
+    }
+
     switchToTextMode() {
+        this.recognition?.stop();
         this.isVoiceMode = false;
-        this.args.microphoneButton.classList.remove('active');
-        this.args.inputField.focus(); // إعادة التركيز على حقل الكتابة
-        this.args.recordText.textContent = 'Record Now'; // إعادة النص إلى "Record Now"
-        this.isRecording = false; // إيقاف حالة التسجيل
+        this.isRecording = false;
+        this.args.microphoneButton?.classList.remove('active');
+        this.args.inputField.focus();
+        this.args.recordText.textContent = 'Record Now';
     }
 
-    // التعامل مع النصوص الناتجة من التعرف على الصوت
-    handleVoiceInput(event) {
-        const transcript = event.results[event.resultIndex][0].transcript;
-        const chatbox = this.args.chatBox;
-        const textField = chatbox.querySelector("input");
-        textField.value = transcript; // عرض النص في حقل الإدخال
-    }
-
-    // إضافة الحدث الخاص بالتعرف على الصوت
-    initVoiceRecognition() {
-        this.recognition.onstart = () => {
-            console.log('Voice recognition started.');
-            this.isRecording = true; // تعيين حالة التسجيل
-        };
-        this.recognition.onend = () => {
-            console.log('Voice recognition ended.');
-            this.isRecording = false; // إيقاف حالة التسجيل
-            if (this.isVoiceMode) {
-                this.recognition.start(); // إعادة البدء تلقائيًا في حال عدم توقف الصوت
+    speakText(text) {
+        return new Promise((resolve) => {
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel(); // إلغاء أي كلام جاري
+                this.isSpeaking = true;
+                
+                const utterance = new SpeechSynthesisUtterance(text);
+                // utterance.lang = 'ar-SA';
+                // utterance.rate = 0.9;
+                utterance.lang = 'en-US'; 
+                utterance.rate = 0.7; 
+                
+                utterance.onend = () => {
+                    this.isSpeaking = false;
+                    resolve();
+                };
+                
+                utterance.onerror = () => {
+                    this.isSpeaking = false;
+                    resolve();
+                };
+                
+                window.speechSynthesis.speak(utterance);
+            } else {
+                resolve();
             }
-        };
-        this.recognition.onresult = (event) => this.handleVoiceInput(event);
-        
+        });
     }
-    
 }
 
+// CSS المطلوب
+const style = document.createElement('style');
+style.textContent = `
+.chatbox__messages {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    overflow-y: auto;
+    max-height: 300px;
+    gap: 10px;
+}
 
-// إنشاء الكائن وتشغيل الدالة initVoiceRecognition
+.messages__item--user {
+    align-self: flex-end;
+    background: #4e8cff;
+    color: white;
+    border-radius: 18px 18px 0 18px;
+    padding: 10px 15px;
+    max-width: 70%;
+}
+
+.messages__item--bot {
+    align-self: flex-start;
+    background: #f1f1f1;
+    color: #000;
+    border-radius: 18px 18px 18px 0;
+    padding: 10px 15px;
+    max-width: 70%;
+}
+`;
+document.head.appendChild(style);
+
+// Initialize chatbox
 const chatbox = new Chatbox();
-chatbox.initVoiceRecognition();
 chatbox.display();
+window.chatbox = chatbox;
